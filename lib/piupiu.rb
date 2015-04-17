@@ -1,7 +1,7 @@
 require "piupiu/version"
 
 module Piupiu
-  def piu_piu(message)
+  def self.piu_piu(message)
     p "## #{message}"
   end
 end
