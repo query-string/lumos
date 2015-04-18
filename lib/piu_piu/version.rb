@@ -1,3 +1,3 @@
-module Piupiu
+module PiuPiu
   VERSION = "0.0.1"
 end

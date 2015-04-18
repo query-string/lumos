@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'piupiu/version'
+require 'piu_piu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "piupiu"
-  spec.version       = Piupiu::VERSION
+  spec.name          = "piu_piu"
+  spec.version       = PiuPiu::VERSION
   spec.authors       = ["query-string"]
   spec.email         = ["atimofeev@reactant.ru"]
   spec.summary       = "Nifty wrapper for your strings"
