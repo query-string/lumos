@@ -1,9 +1,11 @@
 require "piu_piu"
 
 describe PiuPiu do
-  include PiuPiu
+  it "returns sharps if message is empty" do
+    expect(piupiu).to eql("###")
+  end
 
-  it "returns message" do
-    expect(piupiu("Miu")).to eql("## Miu")
+  it "returns wrapped message if message is defined" do
+    expect(piupiu("Miu")).to eql("### Miu ###")
   end
 end
