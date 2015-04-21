@@ -1,5 +1,9 @@
 module Kernel
-  def piupiu(message = "")
-    p message.empty? ? "###" : "### #{message} ###"
+  def piupiu_devide
+    p "###"
+  end
+
+  def piupiu_wrap(message = nil)
+    p message.nil? ? piupiu_devide : "### #{message} ###"
   end
 end
