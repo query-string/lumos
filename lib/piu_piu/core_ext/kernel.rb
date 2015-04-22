@@ -4,6 +4,6 @@ module Kernel
   end
 
   def piupiu_wrap(message = nil)
-    p message.nil? ? piupiu_devide : "### #{message} ###"
+    message.nil? ? piupiu_devide : p("### #{message} ###")
   end
 end
