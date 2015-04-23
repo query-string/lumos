@@ -1,6 +1,6 @@
 module Kernel
-  def piupiu_devide
-    p "###"
+  def piupiu_devide(devider = "#")
+    p devider*3
   end
 
   def piupiu_wrap(message = nil)

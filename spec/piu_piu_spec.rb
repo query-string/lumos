@@ -5,6 +5,9 @@ describe PiuPiu do
     it "without arguments returns sharps" do
       expect { piupiu_devide }.to output("\"###\"\n").to_stdout
     end
+    it "with devider argument returns devider based string" do
+      expect { piupiu_devide "@" }.to output("\"@@@\"\n").to_stdout
+    end
   end
 
   context "#piupiu_wrap" do
