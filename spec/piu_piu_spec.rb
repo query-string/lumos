@@ -11,7 +11,7 @@ describe PiuPiu do
     end
 
     it "define itarations number" do
-      expect { piupiu_devide "–", 10 }.to output("\"––––––––––\"\n").to_stdout
+      expect { piupiu_devide "-", 10 }.to output("\"----------\"\n").to_stdout
     end
   end
 
