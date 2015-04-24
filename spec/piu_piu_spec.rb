@@ -5,8 +5,13 @@ describe PiuPiu do
     it "without arguments returns sharps" do
       expect { piupiu_devide }.to output("\"###\"\n").to_stdout
     end
+
     it "with devider argument returns devider based string" do
       expect { piupiu_devide "@" }.to output("\"@@@\"\n").to_stdout
+    end
+
+    it "define itarations number" do
+      expect { piupiu_devide "–", 10 }.to output("\"––––––––––\"\n").to_stdout
     end
   end
 
@@ -15,7 +20,7 @@ describe PiuPiu do
       expect { piupiu_wrap }.to output("\"###\"\n").to_stdout
     end
 
-    it "without arguments returns wrapped message" do
+    it "with message argument returns wrapped message" do
       expect { piupiu_wrap "Meow!" }.to output("\"### Meow! ###\"\n").to_stdout
     end
   end
