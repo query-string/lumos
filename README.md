@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/query-string/piu_piu.svg)](https://travis-ci.org/query-string/piu_piu)
+
 # Piupiu
 
 TODO: Write a gem description
