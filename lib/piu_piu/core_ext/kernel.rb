@@ -3,7 +3,8 @@ module Kernel
     p delimiter*iterations.to_i
   end
 
-  def piupiu_wrap(message = nil)
-    message.nil? ? piupiu_devide : p("### #{message} ###")
+  def piupiu_wrap(message = nil, options = {})
+    delimiter = options.fetch(:delimiter, "#")
+    message.nil? ? piupiu_devide : p("#{delimiter*3} #{message} #{delimiter*3}")
   end
 end
