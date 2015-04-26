@@ -2,11 +2,11 @@ require "piu_piu"
 
 describe PiuPiu do
   context "#piupiu_devide" do
-    it "returns sharps without arguments" do
+    it "returns sharps if no arguments defined" do
       expect { piupiu_devide }.to output("\"###\"\n").to_stdout
     end
 
-    it "returns delimiter based string with delimiter argument" do
+    it "returns delimiter based string if delimiter defined" do
       expect { piupiu_devide "@" }.to output("\"@@@\"\n").to_stdout
     end
 
@@ -16,16 +16,24 @@ describe PiuPiu do
   end
 
   context "#piupiu_wrap" do
-    it "returns devider without arguments" do
+    it "returns devider without any arguments" do
       expect { piupiu_wrap }.to output("\"###\"\n").to_stdout
     end
 
-    it "returns wrapped message with message argument" do
-      expect { piupiu_wrap "Meow!" }.to output("\"### Meow! ###\"\n").to_stdout
+    it "returns wrapped message if message defined" do
+      expect { piupiu_wrap "Meow!" }.to output("\"# Meow! #\"\n").to_stdout
     end
 
-    it "returns wrapped message and specified delimiter" do
-      expect { piupiu_wrap "Meow!", {delimiter: "@"} }.to output("\"@@@ Meow! @@@\"\n").to_stdout
+    it "returns deliminter wrapped message if delimiter defined" do
+      expect { piupiu_wrap "Meow!", {delimiter: "@"} }.to output("\"@ Meow! @\"\n").to_stdout
+    end
+
+    it "returns message and delimiter aligned to left if left position defined" do
+      expect { piupiu_wrap "Meow!", {delimiter: ":P", position: :left} }.to output("\":P Meow!\"\n").to_stdout
+    end
+
+    it "returns message and delimiter aligned to left if right position defined" do
+      expect { piupiu_wrap "Meow!", {delimiter: ">>>", position: :right} }.to output("\"Meow! >>>\"\n").to_stdout
     end
   end
 end

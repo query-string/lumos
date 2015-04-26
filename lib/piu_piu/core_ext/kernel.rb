@@ -5,6 +5,16 @@ module Kernel
 
   def piupiu_wrap(message = nil, options = {})
     delimiter = options.fetch(:delimiter, "#")
-    message.nil? ? piupiu_devide : p("#{delimiter*3} #{message} #{delimiter*3}")
+    position  = options.fetch(:position, :surround).to_sym
+
+    message_wrapped = if position == :surround
+      "#{delimiter} #{message} #{delimiter}"
+    elsif position == :left
+      "#{delimiter} #{message}"
+    elsif position == :right
+      "#{message} #{delimiter}"
+    end
+
+    message.nil? ? piupiu_devide : p(message_wrapped)
   end
 end
