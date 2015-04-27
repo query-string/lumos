@@ -35,5 +35,9 @@ describe PiuPiu do
     it "returns message and delimiter aligned to left if right position defined" do
       expect { piupiu_wrap "Meow!", {delimiter: ">>>", position: :right} }.to output("\"Meow! >>>\"\n").to_stdout
     end
+
+    it "returns exception if positioning is wrong" do
+      expect { piupiu_wrap "Meow!", {delimiter: "@", position: :unknown} }.to raise_error(ArgumentError)
+    end
   end
 end

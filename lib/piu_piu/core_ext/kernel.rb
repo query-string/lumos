@@ -7,7 +7,8 @@ module Kernel
     delimiter = options.fetch(:delimiter, "#")
     position  = options.fetch(:position, :surround).to_sym
 
-    # Change to
+    check_position position
+
     message_wrapped = case position
       when :surround
         "#{delimiter} #{message} #{delimiter}"
@@ -18,5 +19,12 @@ module Kernel
     end
 
     message.nil? ? piupiu_devide : p(message_wrapped)
+  end
+
+private
+
+  def check_position(position)
+    positions = %i(left right top bottom surround)
+    raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
   end
 end
