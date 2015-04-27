@@ -7,12 +7,14 @@ module Kernel
     delimiter = options.fetch(:delimiter, "#")
     position  = options.fetch(:position, :surround).to_sym
 
-    message_wrapped = if position == :surround
-      "#{delimiter} #{message} #{delimiter}"
-    elsif position == :left
-      "#{delimiter} #{message}"
-    elsif position == :right
-      "#{message} #{delimiter}"
+    # Change to
+    message_wrapped = case position
+      when :surround
+        "#{delimiter} #{message} #{delimiter}"
+      when :left
+        "#{delimiter} #{message}"
+      when :right
+        "#{message} #{delimiter}"
     end
 
     message.nil? ? piupiu_devide : p(message_wrapped)
