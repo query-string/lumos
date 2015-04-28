@@ -4,6 +4,6 @@ module Kernel
   end
 
   def piupiu_wrap(message = nil, options = {})
-    PiuPiu::Wrapper.new(message, options)
+    PiuPiu::Wrapper.new(message, options).puts_message
   end
 end
