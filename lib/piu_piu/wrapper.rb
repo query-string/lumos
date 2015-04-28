@@ -3,7 +3,7 @@ module PiuPiu
 
     attr_reader :message, :delimiter, :position
 
-    def initialize(message, options)
+    def initialize(message, options = {})
       @message   = message
       @delimiter = options.fetch(:delimiter, "#")
       @position  = options.fetch(:position, :surround).to_sym

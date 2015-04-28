@@ -1,6 +1,6 @@
-require "piu_piu"
+require "spec_helper"
 
-describe PiuPiu do
+RSpec.describe "PiuPiu kernel extensions" do
   context "#piupiu_devide" do
     it "returns sharps if no arguments defined" do
       expect { piupiu_devide }.to output("\"###\"\n").to_stdout
