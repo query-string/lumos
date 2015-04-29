@@ -20,6 +20,8 @@ RSpec.describe "PiuPiu kernel extensions" do
       expect { piupiu_wrap }.to output("\"###\"\n").to_stdout
     end
 
+    # @TODO: Extract all that stuff to wrapper spec
+
     it "returns wrapped message if message defined" do
       expect { piupiu_wrap "Aguamenti" }.to output("\"# Aguamenti #\"\n").to_stdout
     end
@@ -32,8 +34,12 @@ RSpec.describe "PiuPiu kernel extensions" do
       expect { piupiu_wrap "Anapneo", {delimiter: ":P", position: :left} }.to output("\":P Anapneo\"\n").to_stdout
     end
 
-    it "returns message and delimiter aligned to left if right position defined" do
+    it "returns message and delimiter aligned to right if right position defined" do
       expect { piupiu_wrap "Aparecium", {delimiter: ">>>", position: :right} }.to output("\"Aparecium >>>\"\n").to_stdout
+    end
+
+    it "returns message and delimiter aligned to top if top position defined" do
+      expect { piupiu_wrap "Avifors", {delimiter: "-", position: :top} }.to output("\"-------\\n       \\nAvifors\"\n").to_stdout
     end
 
     it "returns exception if positioning is wrong" do

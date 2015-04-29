@@ -11,6 +11,10 @@ module PiuPiu
       check_position
     end
 
+    def count_chars
+      message.to_s.size
+    end
+
     def wrapped_message
       case position
         when :surround
@@ -19,11 +23,11 @@ module PiuPiu
           "#{delimiter} #{message}"
         when :right
           "#{message} #{delimiter}"
+        when :top
+          "#{delimiter * count_chars}\n"\
+          "#{' ' * count_chars}\n"\
+          "#{message}"
       end
-    end
-
-    def count_chars
-      message.to_s.size
     end
 
     def puts_message
