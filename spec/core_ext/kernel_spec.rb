@@ -21,23 +21,23 @@ RSpec.describe "PiuPiu kernel extensions" do
     end
 
     it "returns wrapped message if message defined" do
-      expect { piupiu_wrap "Meow!" }.to output("\"# Meow! #\"\n").to_stdout
+      expect { piupiu_wrap "Aguamenti" }.to output("\"# Aguamenti #\"\n").to_stdout
     end
 
     it "returns deliminter wrapped message if delimiter defined" do
-      expect { piupiu_wrap "Meow!", {delimiter: "@"} }.to output("\"@ Meow! @\"\n").to_stdout
+      expect { piupiu_wrap "Alohomora", {delimiter: "@"} }.to output("\"@ Alohomora @\"\n").to_stdout
     end
 
     it "returns message and delimiter aligned to left if left position defined" do
-      expect { piupiu_wrap "Meow!", {delimiter: ":P", position: :left} }.to output("\":P Meow!\"\n").to_stdout
+      expect { piupiu_wrap "Anapneo", {delimiter: ":P", position: :left} }.to output("\":P Anapneo\"\n").to_stdout
     end
 
     it "returns message and delimiter aligned to left if right position defined" do
-      expect { piupiu_wrap "Meow!", {delimiter: ">>>", position: :right} }.to output("\"Meow! >>>\"\n").to_stdout
+      expect { piupiu_wrap "Aparecium", {delimiter: ">>>", position: :right} }.to output("\"Aparecium >>>\"\n").to_stdout
     end
 
     it "returns exception if positioning is wrong" do
-      expect { piupiu_wrap "Meow!", {delimiter: "@", position: :unknown} }.to raise_error(ArgumentError)
+      expect { piupiu_wrap "Avada Kedavra", {delimiter: "@", position: :unknown} }.to raise_error(ArgumentError)
     end
   end
 end
