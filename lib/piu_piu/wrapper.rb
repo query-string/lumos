@@ -22,6 +22,10 @@ module PiuPiu
       end
     end
 
+    def count_chars
+      message.to_s.size
+    end
+
     def puts_message
       message.nil? ? piupiu_devide : p(wrapped_message)
     end
