@@ -1,6 +1,6 @@
 module Kernel
   def piupiu_devide(delimiter = "#", iterations = 3)
-    print delimiter*iterations.to_i
+    print delimiter * iterations.to_i
   end
 
   def piupiu_wrap(message = nil, options = {})

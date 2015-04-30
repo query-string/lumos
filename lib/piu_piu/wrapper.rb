@@ -16,20 +16,26 @@ module PiuPiu
       message.to_s.size
     end
 
+    def chars_line
+      delimiter * count_chars
+    end
+
     def wrapped_message
       case position
         when :surround
-          "#{delimiter} #{message} #{delimiter}"
+          "#{delimiter}#{chars_line}#{delimiter}\n"\
+          "#{delimiter}#{message}#{delimiter}\n"\
+          "#{delimiter}#{chars_line}#{delimiter}"\
         when :left
           "#{delimiter} #{message}"
         when :right
           "#{message} #{delimiter}"
         when :top
-          "#{delimiter * count_chars}\n"\
+          "#{chars_line}\n"\
           "#{message}"
         when :bottom
           "#{message}\n"\
-          "#{delimiter * count_chars}"
+          "#{chars_line}"
       end
     end
 

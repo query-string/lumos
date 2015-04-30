@@ -4,7 +4,7 @@ require "spec_helper"
 describe PiuPiu::Wrapper do
   context "delimiter defined" do
     it "returns message wrapped with certain characters" do
-      expect(described_class.new("Alohomora", {delimiter: "@"}).wrapped_message).to eq("@ Alohomora @")
+      expect(described_class.new("Alohomora", {delimiter: "@"}).wrapped_message).to eq("@@@@@@@@@@@\n@Alohomora@\n@@@@@@@@@@@")
     end
   end
 

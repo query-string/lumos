@@ -21,7 +21,7 @@ RSpec.describe "PiuPiu kernel extensions" do
     end
 
     it "returns wrapped message if message defined" do
-      expect { piupiu_wrap "Aguamenti" }.to output("# Aguamenti #").to_stdout
+      expect { piupiu_wrap "Aguamenti" }.to output("###########\n#Aguamenti#\n###########").to_stdout
     end
   end
 end
