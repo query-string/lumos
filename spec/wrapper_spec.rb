@@ -32,7 +32,7 @@ describe PiuPiu::Wrapper do
 
   context "subsidary methods" do
     it "returns wrapped message" do
-      expect(described_class.new("Accio").wrapped_message).to eq("# Accio #")
+      expect(described_class.new("Accio").wrapped_message).to eq("#######\n#Accio#\n#######")
     end
 
     it "returns number of message characters" do
