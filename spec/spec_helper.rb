@@ -1,4 +1,6 @@
 require "piu_piu"
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
   # Use color in STDOUT

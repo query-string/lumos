@@ -5,3 +5,7 @@ rvm:
   - 2.1
   - 2.1.5
   - 2.2
+
+addons:
+  code_climate:
+    repo_token: 30676ff831772153d0238cd5ccbab7b8044a17d57c2878b07aa04904e7246328
