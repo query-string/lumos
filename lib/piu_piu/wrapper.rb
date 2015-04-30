@@ -7,6 +7,7 @@ module PiuPiu
       @message   = message
       @delimiter = options.fetch(:delimiter, "#")
       @position  = options.fetch(:position, :surround).to_sym
+      # @TODO: Add padding option
 
       check_position
     end
@@ -25,13 +26,11 @@ module PiuPiu
           "#{message} #{delimiter}"
         when :top
           "#{delimiter * count_chars}\n"\
-          "#{' ' * count_chars}\n"\
           "#{message}"
+        when :bottom
+          "#{message}\n"\
+          "#{delimiter * count_chars}"
       end
-    end
-
-    def puts_message
-      message.nil? ? piupiu_devide : p(wrapped_message)
     end
 
   private
