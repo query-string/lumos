@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/query-string/piu_piu.svg)](https://travis-ci.org/query-string/piu_piu)
 [![Code Climate](https://codeclimate.com/github/query-string/piu_piu/badges/gpa.svg)](https://codeclimate.com/github/query-string/piu_piu)
+[![Test Coverage](https://codeclimate.com/github/query-string/piu_piu/badges/coverage.svg)](https://codeclimate.com/github/query-string/piu_piu)
 
 <pre>
 ❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄
