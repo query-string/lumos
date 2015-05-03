@@ -34,6 +34,14 @@ describe PiuPiu::Wrapper do
     it "returns 2 padding wrapped message" do
       expect(described_class.new("Protego", {delimiter: "❄", position: :surround, padding: 2}).wrapped_message).to eq("❄❄❄❄❄❄❄❄❄❄❄❄❄\n❄  Protego  ❄\n❄❄❄❄❄❄❄❄❄❄❄❄❄")
     end
+
+    it "returns 1 line padding between devider and message" do
+      expect(described_class.new("Expelliarmus", {position: :top, padding: 1}).wrapped_message).to eq("############\n\nExpelliarmus")
+    end
+
+    it "returns 2 line padding between message and devider" do
+      expect(described_class.new("Accio", {position: :top, padding: 2}).wrapped_message).to eq("#####\n\n\nAccio")
+    end
   end
 
   context "subsidary methods" do

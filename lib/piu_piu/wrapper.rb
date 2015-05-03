@@ -25,6 +25,7 @@ module PiuPiu
     end
 
     def delimiter_line
+      # Returns line of delimiters + defined padding
       "#{delimiter * count_chars}#{delimiter_padding}"
     end
 
@@ -39,11 +40,13 @@ module PiuPiu
         when :right
           "#{message} #{delimiter}"
         when :top
-          "#{delimiter_line}\n"\
+          "#{horizontal_delimiter}\n"\
+          "#{horizontal_padding}"\
           "#{message}"
         when :bottom
           "#{message}\n"\
-          "#{delimiter_line}"
+          "#{horizontal_padding}"\
+          "#{horizontal_delimiter}"
       end
     end
 
@@ -60,6 +63,14 @@ module PiuPiu
 
     def whitespace_padding
       padding > 0 ? "#{" " * padding}" : nil
+    end
+
+    def horizontal_delimiter
+      delimiter * count_chars
+    end
+
+    def horizontal_padding
+      padding > 0 ? "\n" * padding : nil
     end
   end
 end
