@@ -9,7 +9,7 @@ module PiuPiu
       @position  = options.fetch(:position, :surround).to_sym
       @padding   = options.fetch(:padding, 0).to_i
 
-      # @TODO: Add paddings for different alignment types
+      # @TODO: Simplify surround alignment
       # @TODO: Add padding 1 by default
       # @TODO: Horizontal alignment
       # @TODO: Vertical alignment
@@ -36,9 +36,9 @@ module PiuPiu
           "#{delimiter}#{whitespace_padding}#{message}#{whitespace_padding}#{delimiter}\n"\
           "#{delimiter}#{delimiter_line}#{delimiter}"\
         when :left
-          "#{delimiter} #{message}"
+          "#{delimiter}#{vertical_padding}#{message}"
         when :right
-          "#{message} #{delimiter}"
+          "#{message}#{vertical_padding}#{delimiter}"
         when :top
           "#{horizontal_delimiter}\n"\
           "#{horizontal_padding}"\
@@ -71,6 +71,10 @@ module PiuPiu
 
     def horizontal_padding
       padding > 0 ? "\n" * padding : nil
+    end
+
+    def vertical_padding
+      padding > 0 ? " " * padding : nil
     end
   end
 end

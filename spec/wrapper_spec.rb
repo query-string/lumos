@@ -10,11 +10,11 @@ describe PiuPiu::Wrapper do
 
   context "position defined" do
     it "returns message and left aligned delimiter" do
-      expect(described_class.new("Anapneo", {position: :left}).wrapped_message).to eq("# Anapneo")
+      expect(described_class.new("Anapneo", {position: :left}).wrapped_message).to eq("#Anapneo")
     end
 
     it "returns message and right aligned delimiter" do
-      expect(described_class.new("Aparecium", {position: :right}).wrapped_message).to eq("Aparecium #")
+      expect(described_class.new("Aparecium", {position: :right}).wrapped_message).to eq("Aparecium#")
     end
 
     it "returns message and top aligned delimiter" do
@@ -41,6 +41,14 @@ describe PiuPiu::Wrapper do
 
     it "returns 2 line padding between message and devider" do
       expect(described_class.new("Accio", {position: :top, padding: 2}).wrapped_message).to eq("#####\n\n\nAccio")
+    end
+
+    it "returns 1 whitespace padding between devider and message" do
+      expect(described_class.new("Stupefy", {position: :left, padding: 1}).wrapped_message).to eq("# Stupefy")
+    end
+
+    it "returns 2 whitespace padding between message and devider" do
+      expect(described_class.new("Imperio", {position: :right, padding: 2, delimiter: "->"}).wrapped_message).to eq("Imperio  ->")
     end
   end
 
