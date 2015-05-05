@@ -9,7 +9,7 @@ module PiuPiu
       @position  = options.fetch(:position, :surround).to_sym
       @padding   = options.fetch(:padding, 0).to_i
 
-      # @TODO: Simplify surround alignment
+      # @TODO: Simplify wrapped message
       # @TODO: Add padding 1 by default
       # @TODO: Horizontal alignment
       # @TODO: Vertical alignment
@@ -17,55 +17,48 @@ module PiuPiu
       # @TODO: Add padding validation
       # @TODO: Add delimiter validation
 
-      check_position
+      validate_position
     end
 
     def count_chars
       message.to_s.size
     end
 
-    def delimiter_line
-      # Returns line of delimiters + defined padding
-      "#{delimiter * count_chars}#{delimiter_padding}"
-    end
-
     def wrapped_message
       case position
         when :surround
-          "#{delimiter}#{delimiter_line}#{delimiter}\n"\
-          "#{delimiter}#{whitespace_padding}#{message}#{whitespace_padding}#{delimiter}\n"\
-          "#{delimiter}#{delimiter_line}#{delimiter}"\
+          "#{surround_line}\n"\
+          "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}\n"\
+          "#{surround_line}"
         when :left
           "#{delimiter}#{vertical_padding}#{message}"
         when :right
           "#{message}#{vertical_padding}#{delimiter}"
         when :top
-          "#{horizontal_delimiter}\n"\
+          "#{horizontal_line}\n"\
           "#{horizontal_padding}"\
           "#{message}"
         when :bottom
           "#{message}\n"\
           "#{horizontal_padding}"\
-          "#{horizontal_delimiter}"
+          "#{horizontal_line}"
       end
     end
 
   private
 
-    def check_position
+    def validate_position
       positions = [:left, :right, :top, :bottom, :surround]
       raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
     end
 
-    def delimiter_padding
-      padding > 0 ? "#{(delimiter * padding) * 2}" : nil
+    def surround_line
+      "#{delimiter * count_chars}"\
+      "#{padding > 0 ? (delimiter * padding) * 2 : nil}"\
+      "#{delimiter * 2}"
     end
 
-    def whitespace_padding
-      padding > 0 ? "#{" " * padding}" : nil
-    end
-
-    def horizontal_delimiter
+    def horizontal_line
       delimiter * count_chars
     end
 

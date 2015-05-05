@@ -56,13 +56,5 @@ describe PiuPiu::Wrapper do
     it "returns number of message characters" do
       expect(described_class.new("Defodio").count_chars).to eq(7)
     end
-
-    it "returns delimiter line based on message size" do
-      expect(described_class.new("Wingardium Leviosa").delimiter_line).to eq("##################")
-    end
-
-    it "returns delimiter line based on message size and padding" do
-      expect(described_class.new("Wingardium Leviosa", {padding: 3}).delimiter_line).to eq("########################")
-    end
   end
 end
