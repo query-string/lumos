@@ -27,21 +27,15 @@ module PiuPiu
     def wrapped_message
       case position
         when :surround
-          "#{surround_line}\n"\
-          "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}\n"\
-          "#{surround_line}"
+          surround_message
         when :left
-          "#{delimiter}#{vertical_padding}#{message}"
+          left_message
         when :right
-          "#{message}#{vertical_padding}#{delimiter}"
+          right_message
         when :top
-          "#{horizontal_line}\n"\
-          "#{horizontal_padding}"\
-          "#{message}"
+          top_message
         when :bottom
-          "#{message}\n"\
-          "#{horizontal_padding}"\
-          "#{horizontal_line}"
+          bottom_message
       end
     end
 
@@ -50,6 +44,32 @@ module PiuPiu
     def validate_position
       positions = [:left, :right, :top, :bottom, :surround]
       raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
+    end
+
+    def surround_message
+      "#{surround_line}\n"\
+      "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}\n"\
+      "#{surround_line}"
+    end
+
+    def left_message
+      "#{delimiter}#{vertical_padding}#{message}"
+    end
+
+    def right_message
+      "#{message}#{vertical_padding}#{delimiter}"
+    end
+
+    def top_message
+      "#{horizontal_line}\n"\
+      "#{horizontal_padding}"\
+      "#{message}"
+    end
+
+    def bottom_message
+      "#{message}\n"\
+      "#{horizontal_padding}"\
+      "#{horizontal_line}"
     end
 
     def surround_line
