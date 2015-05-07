@@ -1,4 +1,4 @@
-ENV['CODECLIMATE_REPO_TOKEN'] = "30676ff831772153d0238cd5ccbab7b8044a17d57c2878b07aa04904e7246328"
+ENV['CODECLIMATE_REPO_TOKEN'] = "331d5a46a9d322bb39ba65ac61954d3f5453f7eb20ffd4d3825165cf7a2c19c1"
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
