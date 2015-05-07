@@ -2,7 +2,7 @@ ENV['CODECLIMATE_REPO_TOKEN'] = "30676ff831772153d0238cd5ccbab7b8044a17d57c2878b
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
-require "piu_piu"
+require "lumos"
 
 RSpec.configure do |config|
   # Use color in STDOUT

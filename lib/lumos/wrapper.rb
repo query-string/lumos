@@ -1,4 +1,4 @@
-module PiuPiu
+module Lumos
   class Wrapper
 
     attr_reader :message, :delimiter, :position, :padding

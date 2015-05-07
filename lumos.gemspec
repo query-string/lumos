@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'piu_piu/version'
+require 'lumos/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "piu_piu"
-  spec.version       = PiuPiu::VERSION
+  spec.name          = "lumos"
+  spec.version       = Lumos::VERSION
   spec.authors       = ["query-string"]
   spec.email         = ["atimofeev@reactant.ru"]
   spec.summary       = "Nifty wrapper for your strings"
   spec.description   = "Piu-piu, ololo"
-  spec.homepage      = "http://www.atimofeev.ru"
+  spec.homepage      = "https://github.com/query-string/lumos"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe PiuPiu::Wrapper do
+describe Lumos::Wrapper do
   context "delimiter defined" do
     it "returns message wrapped around with certain characters" do
       expect(described_class.new("Alohomora", {delimiter: "☢"}).wrapped_message).to eq("☢☢☢☢☢☢☢☢☢☢☢\n☢Alohomora☢\n☢☢☢☢☢☢☢☢☢☢☢")
@@ -26,7 +26,7 @@ describe PiuPiu::Wrapper do
     end
 
     it "returns exception if positioning is wrong" do
-      expect { piupiu_wrap "Avada Kedavra", {position: :unknown} }.to raise_error(ArgumentError)
+      expect { lumos_wrap "Avada Kedavra", {position: :unknown} }.to raise_error(ArgumentError)
     end
   end
 
