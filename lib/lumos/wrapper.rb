@@ -9,11 +9,10 @@ module Lumos
       @position  = options.fetch(:position, :surround).to_sym
       @padding   = options.fetch(:padding, 0).to_i
 
-      # @TODO: Simplify wrapped message
-      # @TODO: Add padding 1 by default
       # @TODO: Horizontal alignment
       # @TODO: Vertical alignment
 
+      # @TODO: Add padding 1 by default
       # @TODO: Add padding validation
       # @TODO: Add delimiter validation
 
@@ -25,18 +24,7 @@ module Lumos
     end
 
     def wrapped_message
-      case position
-        when :surround
-          surround_message
-        when :left
-          left_message
-        when :right
-          right_message
-        when :top
-          top_message
-        when :bottom
-          bottom_message
-      end
+      self.send("#{position}_message")
     end
 
   private
