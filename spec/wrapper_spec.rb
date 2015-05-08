@@ -32,11 +32,15 @@ describe Lumos::Wrapper do
     it "returns message and horizontal aligned delimiter" do
       expect(described_class.new("Levicorpus", {position: :horizontal}).wrapped_message).to eq("##########\nLevicorpus\n##########")
     end
+
+    it "returns message and vertical aligned delimiter" do
+      expect(described_class.new("Expulso", {position: :vertical, delimiter: "♫"}).wrapped_message).to eq("♫Expulso♫")
+    end
   end
 
   context "padding defined" do
     it "returns 2 padding wrapped message" do
-      expect(described_class.new("Protego", {delimiter: "❄", position: :surround, padding: 2}).wrapped_message).to eq("❄❄❄❄❄❄❄❄❄❄❄❄❄\n❄  Protego  ❄\n❄❄❄❄❄❄❄❄❄❄❄❄❄")
+      expect(described_class.new("Protego", {position: :surround, padding: 2, delimiter: "❄"}).wrapped_message).to eq("❄❄❄❄❄❄❄❄❄❄❄❄❄\n❄  Protego  ❄\n❄❄❄❄❄❄❄❄❄❄❄❄❄")
     end
 
     it "returns 1-line padding between devider and message" do
@@ -55,8 +59,12 @@ describe Lumos::Wrapper do
       expect(described_class.new("Stupefy", {position: :left, padding: 1}).wrapped_message).to eq("# Stupefy")
     end
 
-    it "returns 2-whitespace padding between message and devider" do
+    it "returns 2-whitespace padding between devider and message " do
       expect(described_class.new("Imperio", {position: :right, padding: 2, delimiter: "->"}).wrapped_message).to eq("Imperio  ->")
+    end
+
+    it "returns 2-whitespace padding between deviders and message" do
+      expect(described_class.new("Riddikulus", {position: :vertical, padding: 2}).wrapped_message).to eq("#  Riddikulus  #")
     end
   end
 

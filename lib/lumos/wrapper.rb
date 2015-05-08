@@ -9,12 +9,13 @@ module Lumos
       @position  = options.fetch(:position, :surround).to_sym
       @padding   = options.fetch(:padding, 0).to_i
 
-      # @TODO: Horizontal alignment
       # @TODO: Vertical alignment
 
       # @TODO: Add padding 1 by default
       # @TODO: Add padding validation
       # @TODO: Add delimiter validation
+
+      # @TODO: Split long strings to lines
 
       validate_position
     end
@@ -64,6 +65,10 @@ module Lumos
       "#{top_message}\n"\
       "#{horizontal_padding}"\
       "#{horizontal_line}"
+    end
+
+    def vertical_message
+      "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}"
     end
 
     def surround_line
