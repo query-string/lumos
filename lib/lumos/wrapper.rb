@@ -30,7 +30,7 @@ module Lumos
   private
 
     def validate_position
-      positions = [:left, :right, :top, :bottom, :surround]
+      positions = [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
       raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
     end
 
@@ -56,6 +56,12 @@ module Lumos
 
     def bottom_message
       "#{message}\n"\
+      "#{horizontal_padding}"\
+      "#{horizontal_line}"
+    end
+
+    def horizontal_message
+      "#{top_message}\n"\
       "#{horizontal_padding}"\
       "#{horizontal_line}"
     end
