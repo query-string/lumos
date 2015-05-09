@@ -7,15 +7,13 @@ module Lumos
       @message   = message
       @delimiter = options.fetch(:delimiter, "#")
       @position  = options.fetch(:position, :surround).to_sym
-      @padding   = options.fetch(:padding, 0).to_i
+      @padding   = options.fetch(:padding, 1).to_i
 
-      # @TODO: Vertical alignment
-
-      # @TODO: Add padding 1 by default
+      # @TODO: Different default padding for different alignments
       # @TODO: Add padding validation
       # @TODO: Add delimiter validation
-
-      # @TODO: Split long strings to lines
+      # @TODO: Split long messages to lines
+      # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
 
       validate_position
     end
@@ -28,16 +26,11 @@ module Lumos
       self.send("#{position}_message")
     end
 
-  private
-
-    def validate_position
-      positions = [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
-      raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
-    end
-
     def surround_message
       "#{surround_line}\n"\
-      "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}\n"\
+      "#{surround_padding}"\
+      "#{surround_body}\n"\
+      "#{surround_padding}"\
       "#{surround_line}"
     end
 
@@ -71,10 +64,25 @@ module Lumos
       "#{delimiter}#{vertical_padding}#{message}#{vertical_padding}#{delimiter}"
     end
 
+  private
+
+    def validate_position
+      positions = [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
+      raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
+    end
+
     def surround_line
       "#{delimiter * count_chars}"\
       "#{padding > 0 ? (delimiter * padding) * 2 : nil}"\
       "#{delimiter * 2}"
+    end
+
+    def surround_body(content = message)
+      "#{delimiter}#{vertical_padding}#{content}#{vertical_padding}#{delimiter}"
+    end
+
+    def surround_padding
+      "#{surround_body(" " * count_chars)}\n" * padding if padding > 0
     end
 
     def horizontal_line
@@ -82,11 +90,11 @@ module Lumos
     end
 
     def horizontal_padding
-      padding > 0 ? "\n" * padding : nil
+      "\n" * padding if padding > 0
     end
 
     def vertical_padding
-      padding > 0 ? " " * padding : nil
+      " " * padding if padding > 0
     end
   end
 end
