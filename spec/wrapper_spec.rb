@@ -18,11 +18,11 @@ describe Lumos::Wrapper do
     end
 
     it "returns message and top aligned delimiter" do
-      expect(described_class.new("Avifors", {position: :top}).wrapped_message).to eq("#######\n\nAvifors")
+      expect(described_class.new("Avifors", {position: :top}).wrapped_message).to eq("#######\nAvifors")
     end
 
     it "returns message and bottom aligned delimiter" do
-      expect(described_class.new("Crucio", {position: :bottom}).wrapped_message).to eq("Crucio\n\n######")
+      expect(described_class.new("Crucio", {position: :bottom}).wrapped_message).to eq("Crucio\n######")
     end
 
     it "returns exception if positioning is wrong" do

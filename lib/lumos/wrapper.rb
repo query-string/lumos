@@ -1,17 +1,16 @@
 module Lumos
   class Wrapper
 
-    attr_reader :message, :delimiter, :position, :padding
+  # @TODO: Split long messages to lines
+  # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
+
+  attr_reader :message, :delimiter, :position, :padding
 
     def initialize(message, options = {})
       @message   = message
       @delimiter = options.fetch(:delimiter, "#").to_s
       @position  = options.fetch(:position, :surround).to_sym
-      @padding   = options.fetch(:padding, 1).to_i.abs
-
-      # @TODO: Different default padding for different alignments
-      # @TODO: Split long messages to lines
-      # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
+      @padding   = options.fetch(:padding, set_default_padding).to_i.abs
 
       validate_position
     end
@@ -63,6 +62,10 @@ module Lumos
     end
 
   private
+
+    def set_default_padding
+      [:top, :bottom].include?(position) ? 0 : 1
+    end
 
     def validate_position
       positions = [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
