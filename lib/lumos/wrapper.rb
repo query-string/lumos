@@ -5,13 +5,11 @@ module Lumos
 
     def initialize(message, options = {})
       @message   = message
-      @delimiter = options.fetch(:delimiter, "#")
+      @delimiter = options.fetch(:delimiter, "#").to_s
       @position  = options.fetch(:position, :surround).to_sym
-      @padding   = options.fetch(:padding, 1).to_i
+      @padding   = options.fetch(:padding, 1).to_i.abs
 
       # @TODO: Different default padding for different alignments
-      # @TODO: Add padding validation
-      # @TODO: Add delimiter validation
       # @TODO: Split long messages to lines
       # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
 
