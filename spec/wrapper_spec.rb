@@ -70,7 +70,15 @@ describe Lumos::Wrapper do
 
   context "subsidary methods" do
     it "returns number of message characters" do
-      expect(described_class.new("Defodio").count_chars).to eq(7)
+      expect(described_class.new("Defodio").message_length).to eq(7)
+    end
+
+    it "returns number of short message lines" do
+      expect(described_class.new("Incendio").message_lines.size).to eq(1)
+    end
+
+    it "returns number of long message lines" do
+      expect(described_class.new("Lumos Maximus " * 30).message_lines.size).to eq(3)
     end
   end
 end

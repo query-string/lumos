@@ -3,20 +3,26 @@ module Lumos
 
   # @TODO: Split long messages to lines
   # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
+  # @TODO: Rewrite README
 
-  attr_reader :message, :delimiter, :position, :padding
+  attr_reader :message, :delimiter, :position, :padding, :length
 
     def initialize(message, options = {})
       @message   = message
       @delimiter = options.fetch(:delimiter, "#").to_s
       @position  = options.fetch(:position, :surround).to_sym
       @padding   = options.fetch(:padding, set_default_padding).to_i.abs
+      @length    = options.fetch(:length, 140).to_i.abs
 
       validate_position
     end
 
-    def count_chars
+    def message_length
       message.to_s.size
+    end
+
+    def message_lines
+      message.scan(/.{1,#{( length > message_length ? message_length : length )}}/)
     end
 
     def wrapped_message
@@ -73,7 +79,7 @@ module Lumos
     end
 
     def surround_line
-      "#{delimiter * count_chars}"\
+      "#{delimiter * message_length}"\
       "#{padding > 0 ? (delimiter * padding) * 2 : nil}"\
       "#{delimiter * 2}"
     end
@@ -83,11 +89,11 @@ module Lumos
     end
 
     def surround_padding
-      "#{surround_body(" " * count_chars)}\n" * padding if padding > 0
+      "#{surround_body(" " * message_length)}\n" * padding if padding > 0
     end
 
     def horizontal_line
-      delimiter * count_chars
+      delimiter * message_length
     end
 
     def horizontal_padding
