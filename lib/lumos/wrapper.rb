@@ -25,6 +25,10 @@ module Lumos
       message.scan(/.{1,#{( length > message_length ? message_length : length )}}/)
     end
 
+    def message_line_length
+      message_lines[0].size
+    end
+
     def wrapped_message
       self.send("#{position}_message")
     end
@@ -79,7 +83,7 @@ module Lumos
     end
 
     def surround_line
-      "#{delimiter * message_length}"\
+      "#{delimiter * message_line_length}"\
       "#{padding > 0 ? (delimiter * padding) * 2 : nil}"\
       "#{delimiter * 2}"
     end
@@ -89,11 +93,11 @@ module Lumos
     end
 
     def surround_padding
-      "#{surround_body(" " * message_length)}\n" * padding if padding > 0
+      "#{surround_body(" " * message_line_length)}\n" * padding if padding > 0
     end
 
     def horizontal_line
-      delimiter * message_length
+      delimiter * message_line_length
     end
 
     def horizontal_padding

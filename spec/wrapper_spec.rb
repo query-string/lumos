@@ -68,6 +68,14 @@ describe Lumos::Wrapper do
     end
   end
 
+=begin
+  context "long strings chopping" do
+    it "returns 4-lines wrapped message" do
+      expect(described_class.new('When I was a kid, my parents refused to let me drink coffee because they believed it would “stunt my growth.” It turns out, of course, that this is a myth. Studies have failed, again and again, to show that coffee or caffeine consumption are related to reduced bone mass or how tall people are.').wrapped_message).to eq("############\n\nExpelliarmus")
+    end
+  end
+=end
+
   context "subsidary methods" do
     it "returns number of message characters" do
       expect(described_class.new("Defodio").message_length).to eq(7)
@@ -78,7 +86,11 @@ describe Lumos::Wrapper do
     end
 
     it "returns number of long message lines" do
-      expect(described_class.new("Lumos Maximus " * 30).message_lines.size).to eq(3)
+      expect(described_class.new("Coffee has long had a reputation as being unhealthy. But in almost every single respect that reputation is backward. The potential health benefits are surprisingly large.").message_lines.size).to eq(2)
+    end
+
+    it "returns message size based on lenght of first chopped line" do
+      expect(described_class.new("Lumos Maximus").message_line_length).to eq(13)
     end
   end
 end
