@@ -78,19 +78,19 @@ describe Lumos::Wrapper do
 
   context "subsidary methods" do
     it "returns number of message characters" do
-      expect(described_class.new("Defodio").message_length).to eq(7)
+      expect(described_class.new("Defodio")._message_length).to eq(7)
     end
 
     it "returns number of short message lines" do
-      expect(described_class.new("Incendio").message_lines.size).to eq(1)
+      expect(described_class.new("Incendio")._chopped_message.size).to eq(1)
     end
 
     it "returns number of long message lines" do
-      expect(described_class.new("Coffee has long had a reputation as being unhealthy. But in almost every single respect that reputation is backward. The potential health benefits are surprisingly large.").message_lines.size).to eq(2)
+      expect(described_class.new("Coffee has long had a reputation as being unhealthy. But in almost every single respect that reputation is backward. The potential health benefits are surprisingly large.")._chopped_message.size).to eq(2)
     end
 
     it "returns message size based on lenght of first chopped line" do
-      expect(described_class.new("Lumos Maximus").message_line_length).to eq(13)
+      expect(described_class.new("Lumos Maximus")._chopped_message_length).to eq(13)
     end
   end
 end
