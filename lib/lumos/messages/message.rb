@@ -28,6 +28,14 @@ module Lumos
       string
     end
 
+    def horizontal_line
+      delimiter * chopped_message_length
+    end
+
+    def horizontal_padding
+      "\n" * padding if padding > 0
+    end
+
     def vertical_padding
       " " * padding if padding > 0
     end

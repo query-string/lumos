@@ -2,95 +2,19 @@
 require "spec_helper"
 
 describe Lumos::Wrapper do
-  context "delimiter defined" do
-    it "returns messages wrapped around with certain characters" do
-      expect(described_class.new("Alohomora", {delimiter: "☢"}).wrapped_message).to eq("☢☢☢☢☢☢☢☢☢☢☢☢☢\n☢           ☢\n☢ Alohomora ☢\n☢           ☢\n☢☢☢☢☢☢☢☢☢☢☢☢☢")
+  context "position" do
+    it "returns surround if position was not defined" do
+      expect(described_class.new("Avada Kedavra").position).to eq(:surround)
+    end
+
+    it "raises an exception if wrong position defined" do
+      expect { described_class.new("Avada Kedavra", {position: :unknown}) }.to raise_error(ArgumentError)
     end
   end
 
-  context "position defined" do
-    it "returns messages and left aligned delimiter" do
-      expect(described_class.new("Anapneo", {position: :left}).wrapped_message).to eq("# Anapneo")
-    end
-
-    it "returns messages and right aligned delimiter" do
-      expect(described_class.new("Aparecium", {position: :right}).wrapped_message).to eq("Aparecium #")
-    end
-
-    it "returns messages and top aligned delimiter" do
-      expect(described_class.new("Avifors", {position: :top}).wrapped_message).to eq("#######\nAvifors")
-    end
-
-    it "returns messages and bottom aligned delimiter" do
-      expect(described_class.new("Crucio", {position: :bottom}).wrapped_message).to eq("Crucio\n######")
-    end
-
-    it "returns exception if positioning is wrong" do
-      expect { lumos_wrap "Avada Kedavra", {position: :unknown} }.to raise_error(ArgumentError)
-    end
-
-    it "returns messages and horizontal aligned delimiter" do
-      expect(described_class.new("Levicorpus", {position: :horizontal}).wrapped_message).to eq("##########\n\nLevicorpus\n\n##########")
-    end
-
-    it "returns messages and vertical aligned delimiter" do
-      expect(described_class.new("Expulso", {position: :vertical, delimiter: "♫"}).wrapped_message).to eq("♫ Expulso ♫")
-    end
-  end
-
-  context "padding defined" do
-    it "returns 2 padding wrapped messages" do
-      expect(described_class.new("Protego", {position: :surround, padding: 2, delimiter: "❄"}).wrapped_message).to eq("❄❄❄❄❄❄❄❄❄❄❄❄❄\n❄           ❄\n❄           ❄\n❄  Protego  ❄\n❄           ❄\n❄           ❄\n❄❄❄❄❄❄❄❄❄❄❄❄❄")
-    end
-
-    it "returns 1-line padding between devider and messages" do
-      expect(described_class.new("Expelliarmus", {position: :top, padding: 1}).wrapped_message).to eq("############\n\nExpelliarmus")
-    end
-
-    it "returns 2-line padding between devider and messages" do
-      expect(described_class.new("Morsmordre", {position: :top, padding: 2}).wrapped_message).to eq("##########\n\n\nMorsmordre")
-    end
-
-    it "returns 2-line padding between deviders and messages" do
-      expect(described_class.new("Accio", {position: :horizontal, padding: 2}).wrapped_message).to eq("#####\n\n\nAccio\n\n\n#####")
-    end
-
-    it "returns 1-whitespace padding between devider and messages" do
-      expect(described_class.new("Stupefy", {position: :left, padding: 1}).wrapped_message).to eq("# Stupefy")
-    end
-
-    it "returns 2-whitespace padding between devider and messages " do
-      expect(described_class.new("Imperio", {position: :right, padding: 2, delimiter: "->"}).wrapped_message).to eq("Imperio  ->")
-    end
-
-    it "returns 2-whitespace padding between deviders and messages" do
-      expect(described_class.new("Riddikulus", {position: :vertical, padding: 2}).wrapped_message).to eq("#  Riddikulus  #")
-    end
-  end
-
-=begin
-  context "long strings chopping" do
-    it "returns 4-lines wrapped messages" do
-      expect(described_class.new('When I was a kid, my parents refused to let me drink coffee because they believed it would “stunt my growth.” It turns out, of course, that this is a myth. Studies have failed, again and again, to show that coffee or caffeine consumption are related to reduced bone mass or how tall people are.').wrapped_message).to eq("############\n\nExpelliarmus")
-    end
-  end
-=end
-
-  context "subsidary methods" do
-    it "returns number of messages characters" do
-      expect(described_class.new("Defodio")._message_length).to eq(7)
-    end
-
-    it "returns number of short messages lines" do
-      expect(described_class.new("Incendio")._chopped_message.size).to eq(1)
-    end
-
-    it "returns number of long messages lines" do
-      expect(described_class.new("Coffee has long had a reputation as being unhealthy. But in almost every single respect that reputation is backward. The potential health benefits are surprisingly large.")._chopped_message.size).to eq(2)
-    end
-
-    it "returns messages size based on lenght of first chopped line" do
-      expect(described_class.new("Lumos Maximus")._chopped_message_length).to eq(13)
+  context "service methods" do
+    it "instantiates class based on defined position" do
+      expect(described_class.new("Avada Kedavra", {position: :left}).wrapped_class.class).to eq(Lumos::LeftMessage)
     end
   end
 end
