@@ -6,7 +6,7 @@ describe Lumos::SurroundMessage do
   end
 
   it "returns delimiter line" do
-    expect(described_class.new(message: "Defodio").line).to eq("###########")
+    expect(described_class.new(message: "Deletrius").line).to eq("#############")
   end
 
   it "returns padding" do

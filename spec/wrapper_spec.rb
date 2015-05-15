@@ -4,7 +4,7 @@ require "spec_helper"
 describe Lumos::Wrapper do
   context "position" do
     it "returns surround if position was not defined" do
-      expect(described_class.new("Avada Kedavra").position).to eq(:surround)
+      expect(described_class.new("Aguamenti").position).to eq(:surround)
     end
 
     it "raises an exception if wrong position defined" do
@@ -14,7 +14,7 @@ describe Lumos::Wrapper do
 
   context "service methods" do
     it "instantiates class based on defined position" do
-      expect(described_class.new("Avada Kedavra", {position: :left}).wrapped_class.class).to eq(Lumos::LeftMessage)
+      expect(described_class.new("Alohomora", {position: :left}).wrapped_class.class).to eq(Lumos::LeftMessage)
     end
   end
 end

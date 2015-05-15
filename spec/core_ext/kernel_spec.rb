@@ -21,7 +21,7 @@ RSpec.describe "Lumos kernel extensions" do
     end
 
     it "returns wrapped messages if messages defined" do
-      expect { lumos_wrap "Aguamenti" }.to output("#############\n#           #\n# Aguamenti #\n#           #\n#############").to_stdout
+      expect { lumos_wrap "Accio" }.to output("#########\n#       #\n# Accio #\n#       #\n#########").to_stdout
     end
   end
 end

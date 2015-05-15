@@ -4,11 +4,11 @@ describe Lumos::Message do
 
   context "subsidary methods" do
     it "returns number of message characters" do
-      expect(described_class.new(message: "Defodio").original_message_length).to eq(7)
+      expect(described_class.new(message: "Cave Inimicum").original_message_length).to eq(13)
     end
 
     it "returns number of short message lines" do
-      expect(described_class.new(message: "Incendio").chopped_message.size).to eq(1)
+      expect(described_class.new(message: "Colloportus").chopped_message.size).to eq(1)
     end
 
     it "returns number of long message lines" do
@@ -16,7 +16,7 @@ describe Lumos::Message do
     end
 
     it "returns messages size based on lenght of first chopped line" do
-      expect(described_class.new(message: "Lumos Maximus").chopped_message_length).to eq(13)
+      expect(described_class.new(message: "Confringo").chopped_message_length).to eq(9)
     end
   end
 
