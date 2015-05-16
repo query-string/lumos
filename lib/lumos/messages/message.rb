@@ -6,7 +6,7 @@ module Lumos
       @original_message = options.fetch(:message)
       @delimiter        = options.fetch(:delimiter, "#").to_s
       @padding          = options.fetch(:padding, 1).to_i.abs
-      @length           = options.fetch(:length, 140).to_i.abs
+      @length           = options.fetch(:length, 70).to_i.abs
     end
 
     def original_message_length

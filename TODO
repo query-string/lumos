@@ -1,6 +1,8 @@
-# @TODO: Extract alignments to their own classes
+# @TODO: Investigate and fix padding specs
+# @TODO: Fix cutting specs
+
 # @TODO: Take a close look at Lumos::Wrapper design (and naming)
 # @TODO: Lumos::Wrapper might keep messages shortcuts (i.e. self.surround_message)
-# @TODO: Split long messages to lines
+
 # @TODO: Use single method rather than `lumos_wrap` and `lumos_devide`
 # @TODO: Rewrite README

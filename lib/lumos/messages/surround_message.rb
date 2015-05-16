@@ -18,7 +18,7 @@ module Lumos
       "#{body(" " * chopped_message_length)}\n" * padding if padding > 0
     end
 
-    def body(string)
+    def body(string = original_message)
       "#{delimiter}#{vertical_padding}#{string}#{vertical_padding}#{delimiter}"
     end
   end
