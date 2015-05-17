@@ -10,6 +10,14 @@ describe Lumos::SurroundMessage do
       expect(described_class.new(message: "Deletrius", delimiter: "❤").message).to eq("❤❤❤❤❤❤❤❤❤❤❤❤❤\n❤           ❤\n❤ Deletrius ❤\n❤           ❤\n❤❤❤❤❤❤❤❤❤❤❤❤❤")
     end
 
+    it "returns zero-padding message" do
+      expect(described_class.new(message: "Densaugeo", padding: 0).message).to eq("###########\n#Densaugeo#\n###########")
+    end
+
+    it "returns 1-digit padding message" do
+      expect(described_class.new(message: "Densaugeo", padding: 1).message).to eq("#############\n#           #\n# Densaugeo #\n#           #\n#############")
+    end
+
     it "returns 2-digits padding message" do
       expect(described_class.new(message: "Densaugeo", padding: 2).message).to eq("###############\n#             #\n#             #\n#  Densaugeo  #\n#             #\n#             #\n###############")
     end
