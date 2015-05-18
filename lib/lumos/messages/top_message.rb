@@ -8,7 +8,7 @@ module Lumos
     def message
       "#{horizontal_line}\n"\
       "#{horizontal_padding}"\
-      "#{iterate_chopped_lines{ |line| line }}"
+      "#{iterate_chopped_lines{ |line| "#{line}#{chopping_line line}" }}"
     end
   end
 end
