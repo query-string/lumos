@@ -1,6 +1,6 @@
 require "active_support/core_ext/string"
 
-# @TODO: Require in loop
+# @TODO.md: Require in loop
 require "lumos/messages/message"
 require "lumos/messages/surround_message"
 require "lumos/messages/left_message"
