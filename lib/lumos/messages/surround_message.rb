@@ -3,7 +3,7 @@ module Lumos
     def message
       "#{line}\n"\
       "#{offset}"\
-      "#{iterate_chopped_lines{ |string| "#{body(string)}\n" }}"\
+      "#{iterate_chopped_lines{ |line| "#{body(line)}\n" }}"\
       "#{offset}"\
       "#{line}"
     end
@@ -18,8 +18,8 @@ module Lumos
       "#{body(" " * chopped_message_length)}\n" * padding if padding > 0
     end
 
-    def body(string = original_message)
-      "#{delimiter}#{vertical_padding}#{string}#{vertical_padding}#{delimiter}"
+    def body(line = original_message)
+      "#{delimiter}#{vertical_padding}#{line}#{vertical_padding}#{chopping_padding line}#{delimiter}"
     end
   end
 end

@@ -32,8 +32,20 @@ module Lumos
       delimiter * chopped_message_length
     end
 
+    def chopping_last_line?(line)
+      chopped_message.index(line) == chopped_message.size - 1
+    end
+
     def chopping_line(line)
-      "\n" if chopped_message.size > 1 && chopped_message.index(line) != chopped_message.size - 1
+      "\n" if chopped_message.size > 1 && !chopping_last_line?(line)
+    end
+
+    def chopping_padding(line)
+      if chopping_last_line?(line)
+        first_line = chopped_message.first.size
+        last_line  = chopped_message.last.size
+        " " * (first_line - last_line) if first_line > last_line
+      end
     end
 
     def horizontal_padding
