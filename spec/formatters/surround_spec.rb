@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::SurroundMessage do
+describe Lumos::Formatters::Surround do
   context "arguments" do
     it "returns wrapped message" do
       expect(described_class.new(message: "Defodio").message).to eq("###########\n#         #\n# Defodio #\n#         #\n###########")

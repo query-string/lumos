@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::BottomMessage do
+describe Lumos::Formatters::Bottom do
   context "messages" do
     it "returns wrapped message" do
       expect(described_class.new(message: "Langlock").message).to eq("Langlock\n########")

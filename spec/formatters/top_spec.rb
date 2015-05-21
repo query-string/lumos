@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::TopMessage do
+describe Lumos::Formatters::Top do
   context "messages" do
     it "returns wrapped message" do
       expect(described_class.new(message: "Immobulus").message).to eq("#########\nImmobulus")

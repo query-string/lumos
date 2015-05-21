@@ -11,7 +11,7 @@ module Lumos
     end
 
     def wrapped_class
-      ("Lumos::" + "#{position}_message".classify).constantize.new(merged_options)
+      ("Lumos::Formatters::" + "#{position}".classify).constantize.new(merged_options)
     end
 
     def wrapped

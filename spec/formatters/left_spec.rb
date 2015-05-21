@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::LeftMessage do
+describe Lumos::Formatters::Left do
   context "messages" do
     it "returns wrapped message" do
       expect(described_class.new(message: "Engorgio").message).to eq("# Engorgio")

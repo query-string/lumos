@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::Message do
+describe Lumos::Formatters::Base do
 
   context "subsidary methods" do
     it "returns number of message characters" do

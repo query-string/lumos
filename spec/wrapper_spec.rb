@@ -14,7 +14,7 @@ describe Lumos::Wrapper do
 
   context "service methods" do
     it "instantiates class based on defined position" do
-      expect(described_class.new("Alohomora", {position: :left}).wrapped_class.class).to eq(Lumos::LeftMessage)
+      expect(described_class.new("Alohomora", {position: :left}).wrapped_class.class).to eq(Lumos::Formatters::Left)
     end
   end
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe Lumos::VerticalMessage do
+describe Lumos::Formatters::Vertical do
   context "messages" do
     it "returns message" do
       expect(described_class.new(message: "Obliviate").message).to eq("# Obliviate #")
