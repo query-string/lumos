@@ -5,7 +5,7 @@ describe Lumos::Formatters::Base do
 
   context "subsidary methods" do
     it "returns number of message characters" do
-      expect(described_class.new(message: "Cave Inimicum").original_message_length).to eq(13)
+      expect(described_class.new(message: "Cave Inimicum").message_length).to eq(13)
     end
 
     it "returns number of short message lines" do

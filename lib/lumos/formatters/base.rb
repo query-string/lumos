@@ -1,21 +1,21 @@
 module Lumos
   module Formatters
     class Base
-      attr_reader :original_message, :delimiter, :padding, :length
+      attr_reader :message, :delimiter, :padding, :length
 
       def initialize(options = {})
-        @original_message = options.fetch(:message)
-        @delimiter        = options.fetch(:delimiter, "#").to_s
-        @padding          = options.fetch(:padding, 1).to_i.abs
-        @length           = options.fetch(:length, 70).to_i.abs
+        @message   = options.fetch(:message)
+        @delimiter = options.fetch(:delimiter, "#").to_s
+        @padding   = options.fetch(:padding, 1).to_i.abs
+        @length    = options.fetch(:length, 70).to_i.abs
       end
 
-      def original_message_length
-        original_message.to_s.size
+      def message_length
+        message.to_s.size
       end
 
       def chopped_message
-        original_message.scan(/.{1,#{( length > original_message_length ? original_message_length : length )}}/)
+        message.scan(/.{1,#{( length > message_length ? message_length : length )}}/)
       end
 
       def chopped_message_length

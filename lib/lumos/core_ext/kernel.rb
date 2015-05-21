@@ -4,6 +4,6 @@ module Kernel
   end
 
   def lumos_wrap(message = nil, options = {})
-    message.nil? ? print(lumos_devide) : print(Lumos::Wrapper.new(message, options).wrapped)
+    message.nil? ? print(lumos_devide) : print(Lumos::Wrapper.new(message, options).result)
   end
 end

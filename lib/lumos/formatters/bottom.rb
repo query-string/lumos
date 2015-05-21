@@ -6,7 +6,7 @@ module Lumos
         @padding = options.fetch(:padding, 0).to_i.abs
       end
 
-      def message
+      def result
         "#{iterate_chopped_lines{ |line| "#{line}\n" }}"\
         "#{horizontal_padding}"\
         "#{horizontal_line}"

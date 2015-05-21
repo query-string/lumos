@@ -1,7 +1,7 @@
 module Lumos
   module Formatters
     class Surround < Lumos::Formatters::Base
-      def message
+      def result
         "#{line}\n"\
         "#{offset}"\
         "#{iterate_chopped_lines{ |line| "#{body(line)}\n" }}"\
@@ -19,7 +19,7 @@ module Lumos
         "#{body(" " * chopped_message_length)}\n" * padding if padding > 0
       end
 
-      def body(line = original_message)
+      def body(line = message)
         "#{delimiter}#{vertical_padding}#{line}#{vertical_padding}#{chopping_padding line}#{delimiter}"
       end
     end

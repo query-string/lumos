@@ -3,19 +3,19 @@ module Lumos
     attr_reader :message, :options, :position
 
     def initialize(message, options = {})
-      @message   = message
-      @options   = options
-      @position  = options.fetch(:position, :surround).to_sym
+      @message  = message
+      @options  = options
+      @position = options.fetch(:position, :surround).to_sym
 
       validate_position
     end
 
-    def wrapped_class
+    def formatter
       ("Lumos::Formatters::" + "#{position}".classify).constantize.new(merged_options)
     end
 
-    def wrapped
-      wrapped_class.message
+    def result
+      formatter.result
     end
 
   private
