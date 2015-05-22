@@ -20,9 +20,12 @@ module Lumos
 
   private
 
+    def available_possitions
+      [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
+    end
+
     def validate_position
-      positions = [:surround, :left, :right, :top, :bottom, :horizontal, :vertical]
-      raise ArgumentError, "#{position} is not correct position. You can use one of following: #{positions.join(", ")}." unless positions.include?(position)
+      raise ArgumentError, "#{position} is not correct position. You can use one of following: #{available_possitions.join(", ")}." unless available_possitions.include?(position)
     end
 
     def merged_options
