@@ -1,27 +1,25 @@
 require "spec_helper"
 
 RSpec.describe "Lumos kernel extensions" do
-  context "#lumos_devide" do
-    it "returns sharps if no arguments defined" do
-      expect { lumos_devide }.to output("###").to_stdout
-    end
 
-    it "returns delimiter based string if delimiter defined" do
-      expect { lumos_devide "@" }.to output("@@@").to_stdout
-    end
-
-    it "define itarations number" do
-      expect { lumos_devide "-", 10 }.to output("----------").to_stdout
-    end
+  it "returns sharps if no arguments defined" do
+    expect { lumos }.to output("###").to_stdout
   end
 
-  context "#lumos_wrap" do
-    it "returns devider without any arguments" do
-      expect { lumos_wrap }.to output("###").to_stdout
-    end
-
-    it "returns wrapped messages if messages defined" do
-      expect { lumos_wrap "Accio" }.to output("#########\n#       #\n# Accio #\n#       #\n#########").to_stdout
-    end
+  it "returns delimiter based string if delimiter defined" do
+    expect { lumos "@" }.to output("@@@").to_stdout
   end
+
+  it "returns delimiter based string repeated 10 times" do
+    expect { lumos "-", 10 }.to output("----------").to_stdout
+  end
+
+  it "returns wrapped messages if second param is hash" do
+    expect { lumos "Accio", {} }.to output("#########\n#       #\n# Accio #\n#       #\n#########").to_stdout
+  end
+
+  it "returns bottom positioned message" do
+    expect { lumos "Accio", {position: :bottom, delimiter: "@"} }.to output("Accio\n@@@@@").to_stdout
+  end
+
 end
