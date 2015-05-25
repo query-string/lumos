@@ -30,8 +30,13 @@ describe Lumos::Formatters::Bottom do
     end
   end
 
-  it "returns delimiter message" do
-    expect(described_class.new(message: "Legilimens", delimiter: "☯").result).to eq("Legilimens\n☯☯☯☯☯☯☯☯☯☯")
-  end
+  context "delimiters" do
+    it "returns delimiter message" do
+      expect(described_class.new(message: "Legilimens", delimiter: "☯").result).to eq("Legilimens\n☯☯☯☯☯☯☯☯☯☯")
+    end
 
+    it "returns message with multichar delimiter" do
+      expect(described_class.new(message: "Legilimens", delimiter: "=->").result).to eq("Legilimens\n=->=->=->=")
+    end
+  end
 end

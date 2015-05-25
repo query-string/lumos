@@ -30,7 +30,13 @@ describe Lumos::Formatters::Horizontal do
     end
   end
 
-  it "returns delimiter message" do
-    expect(described_class.new(message: "Mobiliarbus", delimiter: "❄").result).to eq("❄❄❄❄❄❄❄❄❄❄❄\nMobiliarbus\n❄❄❄❄❄❄❄❄❄❄❄")
+  context "delimiters" do
+    it "returns delimiter message" do
+      expect(described_class.new(message: "Mobiliarbus", delimiter: "❄").result).to eq("❄❄❄❄❄❄❄❄❄❄❄\nMobiliarbus\n❄❄❄❄❄❄❄❄❄❄❄")
+    end
+
+    it "returns message with multichar delimiter" do
+      expect(described_class.new(message: "Mobiliarbus", delimiter: "=->").result).to eq("=->=->=->=-\nMobiliarbus\n=->=->=->=-")
+    end
   end
 end

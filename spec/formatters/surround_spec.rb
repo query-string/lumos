@@ -11,6 +11,10 @@ describe Lumos::Formatters::Surround do
       expect(described_class.new(message: "Deletrius", delimiter: "❤").result).to eq("❤❤❤❤❤❤❤❤❤❤❤❤❤\n❤           ❤\n❤ Deletrius ❤\n❤           ❤\n❤❤❤❤❤❤❤❤❤❤❤❤❤")
     end
 
+    it "returns message with multichar delimiter" do
+      expect(described_class.new(message: "Deletrius", delimiter: "=->").result).to eq("=->=->=->=->=->=-\n=->           =->\n=-> Deletrius =->\n=->           =->\n=->=->=->=->=->=-")
+    end
+
     it "returns zero-padding message" do
       expect(described_class.new(message: "Densaugeo", padding: 0).result).to eq("###########\n#Densaugeo#\n###########")
     end
