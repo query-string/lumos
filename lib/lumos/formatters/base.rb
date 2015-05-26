@@ -29,8 +29,16 @@ module Lumos
         string
       end
 
-      def horizontal_line
+      def horizontal_draft
         delimiter * chopped_message_length
+      end
+
+      def horizontal_line
+        paragraph      = content_paragraph(chopped_message[0])
+        paragraph_size = paragraph.size
+        draft_size     = horizontal_draft.size
+
+        draft_size > paragraph_size ? horizontal_draft[0...paragraph_size] : horizontal_draft
       end
 
       def chopping_last_line?(line)

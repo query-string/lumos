@@ -9,7 +9,13 @@ module Lumos
       def result
         "#{horizontal_line}\n"\
         "#{horizontal_padding}"\
-        "#{iterate_chopped_lines{ |line| "#{line}#{chopping_line line}" }}"
+        "#{iterate_chopped_lines{ |line| content_paragraph line }}"
+      end
+
+    private
+
+      def content_paragraph(line)
+        "#{line}#{chopping_line line}"
       end
     end
   end

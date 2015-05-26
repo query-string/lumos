@@ -34,19 +34,21 @@ describe Lumos::Formatters::Surround do
     it "returns multiline message with defined length" do
       expect(described_class.new(message: "Coffee has long had a reputation as being unhealthy. But in almost every single respect that reputation is backward. The potential health benefits are surprisingly large.", length: 35).result).to eq("#######################################\n#                                     #\n# Coffee has long had a reputation as #\n#  being unhealthy. But in almost eve #\n# ry single respect that reputation i #\n# s backward. The potential health be #\n# nefits are surprisingly large.      #\n#                                     #\n#######################################")
     end
-  end
+    end
 
+=begin
   context "self methods" do
     it "returns delimiter line" do
-      expect(described_class.new(message: "Deprimo").line).to eq("###########")
+      expect(described_class.new(message: "Deprimo").horizontal_line).to eq("###########")
     end
 
     it "returns offset" do
-      expect(described_class.new(message: "Diffindo").offset).to eq("#          #\n")
+      expect(described_class.new(message: "Diffindo").horizontal_padding).to eq("#          #\n")
     end
 
     it "returns body" do
       expect(described_class.new(message: "Dissendium").body).to eq("# Dissendium #")
     end
   end
+=end
 end
