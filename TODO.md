@@ -2,10 +2,9 @@
 - [x] Test to-do markdown
 
 ## Next
-- [x] Multichar delimiters
-- [ ] Recheck multiline top messages
-- [ ] Adjust `horizontal_line` and `horizontal_draft` methods
+- [x] Recheck multiline top messages
 - [ ] Single `lumos` call must cause surround wrapping
+- [ ] Adjust `horizontal_line` and `horizontal_draft` methods
 - [ ] Test different input objects behaviour
 - [ ] Add emoji support
 - [ ] Rewrite README
