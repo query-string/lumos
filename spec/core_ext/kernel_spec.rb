@@ -1,6 +1,23 @@
 require "spec_helper"
 
 RSpec.describe "Lumos kernel extensions" do
+  context "devider" do
+    it "returns sharps if no arguments defined" do
+      expect { lumos }.to output("###").to_stdout
+    end
+
+    it "returns delimiter based string repeated 10 times" do
+      expect { lumos :> }.to output("---").to_stdout
+    end
+
+    it "returns delimiter based string repeated 10 times" do
+      expect { lumos :>, "-" }.to output("---").to_stdout
+    end
+
+    it "returns delimiter based string repeated 10 times" do
+      expect { lumos :>, "@", 10 }.to output("@@@@@@@@@@").to_stdout
+    end
+  end
 
   context "wrapper" do
     it "returns wrapped messages if second param is hash" do
@@ -11,15 +28,4 @@ RSpec.describe "Lumos kernel extensions" do
       expect { lumos "Accio", {position: :bottom, delimiter: "@"} }.to output("Accio\n@@@@@").to_stdout
     end
   end
-
-  context "devider" do
-    it "returns sharps if no arguments defined" do
-      expect { lumos }.to output("###").to_stdout
-    end
-
-    it "returns delimiter based string repeated 10 times" do
-      expect { lumos "@", 10 }.to output("@@@@@@@@@@").to_stdout
-    end
-  end
-
 end
