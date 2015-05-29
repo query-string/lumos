@@ -6,11 +6,11 @@ RSpec.describe "Lumos kernel extensions" do
       expect { lumos }.to output("###").to_stdout
     end
 
-    it "returns delimiter based string repeated 10 times" do
-      expect { lumos :> }.to output("---").to_stdout
+    it "returns sharps if only pointer defined" do
+      expect { lumos :> }.to output("###").to_stdout
     end
 
-    it "returns delimiter based string repeated 10 times" do
+    it "returns delimiter based string" do
       expect { lumos :>, "-" }.to output("---").to_stdout
     end
 
@@ -20,7 +20,7 @@ RSpec.describe "Lumos kernel extensions" do
   end
 
   context "wrapper" do
-    it "returns wrapped messages if second param is hash" do
+    it "returns wrapped messages if no arguments except message defined" do
       expect { lumos "Accio" }.to output("#########\n#       #\n# Accio #\n#       #\n#########").to_stdout
     end
 
