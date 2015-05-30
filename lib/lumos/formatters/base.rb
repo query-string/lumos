@@ -29,24 +29,36 @@ module Lumos
         string
       end
 
-      def horizontal_draft
+      def horizontal_pattern
         delimiter * chopped_message_length
       end
 
       def horizontal_line
         paragraph      = content_paragraph(chopped_message[0])
         paragraph_size = paragraph.size
-        draft_size     = horizontal_draft.size
+        draft_size     = horizontal_pattern.size
 
-        draft_size > paragraph_size ? horizontal_draft[0...paragraph_size] : horizontal_draft
+        draft_size > paragraph_size ? horizontal_pattern[0...paragraph_size] : horizontal_pattern
       end
 
-      def chopping_last_line?(line)
-        chopped_message.index(line) == chopped_message.size - 1
+      def horizontal_padding
+        "\n" * padding if padding > 0
+      end
+
+      def horizontal_result
+        "#{horizontal_line}\n"\
+        "#{horizontal_padding}"\
+        "#{iterate_chopped_lines{ |line| "#{content_paragraph(line)}\n" }}"\
+        "#{horizontal_padding}"\
+        "#{horizontal_line}"
       end
 
       def chopping_line(line)
         "\n" if chopped_message.size > 1 && !chopping_last_line?(line)
+      end
+
+      def chopping_last_line?(line)
+        chopped_message.index(line) == chopped_message.size - 1
       end
 
       def chopping_padding(line)
@@ -55,10 +67,6 @@ module Lumos
           last_line  = chopped_message.last.size
           " " * (first_line - last_line) if first_line > last_line
         end
-      end
-
-      def horizontal_padding
-        "\n" * padding if padding > 0
       end
 
       def vertical_padding
