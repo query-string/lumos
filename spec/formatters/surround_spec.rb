@@ -2,29 +2,9 @@
 require "spec_helper"
 
 describe Lumos::Formatters::Surround do
-  context "arguments" do
+  context "messages" do
     it "returns wrapped message" do
       expect(described_class.new(message: "Defodio").result).to eq("###########\n#         #\n# Defodio #\n#         #\n###########")
-    end
-
-    it "returns delimiter message" do
-      expect(described_class.new(message: "Deletrius", delimiter: "❤").result).to eq("❤❤❤❤❤❤❤❤❤❤❤❤❤\n❤           ❤\n❤ Deletrius ❤\n❤           ❤\n❤❤❤❤❤❤❤❤❤❤❤❤❤")
-    end
-
-    it "returns message with multichar delimiter" do
-      expect(described_class.new(message: "Deletrius", delimiter: "=->").result).to eq("=->=->=->=->=->=-\n=->           =->\n=-> Deletrius =->\n=->           =->\n=->=->=->=->=->=-")
-    end
-
-    it "returns zero-padding message" do
-      expect(described_class.new(message: "Densaugeo", padding: 0).result).to eq("###########\n#Densaugeo#\n###########")
-    end
-
-    it "returns 1-digit padding message" do
-      expect(described_class.new(message: "Densaugeo", padding: 1).result).to eq("#############\n#           #\n# Densaugeo #\n#           #\n#############")
-    end
-
-    it "returns 2-digits padding message" do
-      expect(described_class.new(message: "Densaugeo", padding: 2).result).to eq("###############\n#             #\n#             #\n#  Densaugeo  #\n#             #\n#             #\n###############")
     end
 
     it "returns multiline message" do
@@ -36,22 +16,27 @@ describe Lumos::Formatters::Surround do
     end
   end
 
-  context ""
-
-
-=begin
-  context "self methods" do
-    it "returns delimiter line" do
-      expect(described_class.new(message: "Deprimo").horizontal_line).to eq("###########")
+  context "paddings" do
+    it "returns zero-digit padding message" do
+      expect(described_class.new(message: "Densaugeo", padding: 0).result).to eq("###########\n#Densaugeo#\n###########")
     end
 
-    it "returns offset" do
-      expect(described_class.new(message: "Diffindo").horizontal_padding).to eq("#          #\n")
+    it "returns 1-digit padding message" do
+      expect(described_class.new(message: "Densaugeo", padding: 1).result).to eq("#############\n#           #\n# Densaugeo #\n#           #\n#############")
     end
 
-    it "returns body" do
-      expect(described_class.new(message: "Dissendium").body).to eq("# Dissendium #")
+    it "returns 2-digits padding message" do
+      expect(described_class.new(message: "Densaugeo", padding: 2).result).to eq("###############\n#             #\n#             #\n#  Densaugeo  #\n#             #\n#             #\n###############")
     end
   end
-=end
+
+  context "delimiters" do
+    it "returns delimiter message" do
+      expect(described_class.new(message: "Deletrius", delimiter: "❤").result).to eq("❤❤❤❤❤❤❤❤❤❤❤❤❤\n❤           ❤\n❤ Deletrius ❤\n❤           ❤\n❤❤❤❤❤❤❤❤❤❤❤❤❤")
+    end
+
+    it "returns message with multichar delimiter" do
+      expect(described_class.new(message: "Deletrius", delimiter: "=->").result).to eq("=->=->=->=->=->=-\n=->           =->\n=-> Deletrius =->\n=->           =->\n=->=->=->=->=->=-")
+    end
+  end
 end
