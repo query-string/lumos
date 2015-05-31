@@ -33,5 +33,10 @@ RSpec.describe "Lumos kernel extensions" do
     it "returns wrapped array" do
       expect { lumos %w(One Two Freddy is coming for you Three Four better lock your door ) }.to output("##########################################################################\n#                                                                        #\n# [\"One\", \"Two\", \"Freddy\", \"is\", \"coming\", \"for\", \"you\", \"Three\", \"Four\" #\n# , \"better\", \"lock\", \"your\", \"door\"]                                    #\n#                                                                        #\n##########################################################################").to_stdout
     end
+
+    it "returns wrapped hash" do
+      domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
+      expect { lumos domains, {length: 56}}.to output("############################################################\n#                                                          #\n# {:ru=>\"Russia\", :th=>\"Thailand\", \"com.au\"=>\"Australia\",  #\n# :ph=>\"Philippines\"}                                      #\n#                                                          #\n############################################################").to_stdout
+    end
   end
 end
