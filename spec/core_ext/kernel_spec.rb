@@ -28,4 +28,10 @@ RSpec.describe "Lumos kernel extensions" do
       expect { lumos "Accio", {position: :bottom, delimiter: "@"} }.to output("Accio\n@@@@@").to_stdout
     end
   end
+
+  context "objects" do
+    it "returns wrapped array" do
+      expect { lumos %w(One Two Freddy is coming for you Three Four better lock your door ) }.to output("##########################################################################\n#                                                                        #\n# [\"One\", \"Two\", \"Freddy\", \"is\", \"coming\", \"for\", \"you\", \"Three\", \"Four\" #\n# , \"better\", \"lock\", \"your\", \"door\"]                                    #\n#                                                                        #\n##########################################################################").to_stdout
+    end
+  end
 end

@@ -4,7 +4,7 @@ module Lumos
       attr_reader :message, :delimiter, :padding, :length
 
       def initialize(options = {})
-        @message   = options.fetch(:message)
+        @message   = options.fetch(:message).to_s
         @delimiter = options.fetch(:delimiter, "#").to_s
         @padding   = options.fetch(:padding, 1).to_i.abs
         @length    = options.fetch(:length, 70).to_i.abs
