@@ -28,17 +28,17 @@ Or install it yourself as:
 
 ## Devider
 
-** Single call without params **
+**Single call without params**
 ```ruby
 lumos
 ```
 
-** Specify delimiter **
+**Specify delimiter**
 ```ruby
 lumos :>, "->"
 ```
 
-** Specify number of repeats **
+**Specify number of repeats**
 ```ruby
 lumos :>, "@", 10
 ```
