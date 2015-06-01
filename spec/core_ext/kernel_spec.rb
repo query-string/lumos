@@ -1,4 +1,5 @@
 require "spec_helper"
+require "set"
 
 RSpec.describe "Lumos kernel extensions" do
   context "devider" do
@@ -37,6 +38,10 @@ RSpec.describe "Lumos kernel extensions" do
     it "returns wrapped hash" do
       domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
       expect { lumos domains, {length: 56}}.to output("############################################################\n#                                                          #\n# {:ru=>\"Russia\", :th=>\"Thailand\", \"com.au\"=>\"Australia\",  #\n# :ph=>\"Philippines\"}                                      #\n#                                                          #\n############################################################").to_stdout
+    end
+
+    it "returns wrapped set" do
+      expect { lumos Set.new([1,2,3])}.to output("#<Set: {1, 2, 3}>").to_stdout
     end
   end
 end
