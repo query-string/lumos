@@ -43,5 +43,10 @@ RSpec.describe "Lumos kernel extensions" do
     it "returns wrapped set" do
       expect { lumos Set.new([1,2,3])}.to output("#<Set: {1, 2, 3}>").to_stdout
     end
+
+    it "returns wrapped struct" do
+      Struct.new("Customer", :name, :address)
+      expect { lumos Struct::Customer.new("Dave", "123 Main")}.to output("##############################################################\n#                                                            #\n# #<struct Struct::Customer name=\"Dave\", address=\"123 Main\"> #\n#                                                            #\n##############################################################").to_stdout
+    end
   end
 end
