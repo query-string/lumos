@@ -31,22 +31,27 @@ RSpec.describe "Lumos kernel extensions" do
   end
 
   context "objects" do
-    it "returns wrapped array" do
+    it "returns wrapped Array" do
       expect { lumos %w(One Two Freddy is coming for you Three Four better lock your door ) }.to output("##########################################################################\n#                                                                        #\n# [\"One\", \"Two\", \"Freddy\", \"is\", \"coming\", \"for\", \"you\", \"Three\", \"Four\" #\n# , \"better\", \"lock\", \"your\", \"door\"]                                    #\n#                                                                        #\n##########################################################################").to_stdout
     end
 
-    it "returns wrapped hash" do
+    it "returns wrapped Hash" do
       domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
       expect { lumos domains, {length: 56}}.to output("############################################################\n#                                                          #\n# {:ru=>\"Russia\", :th=>\"Thailand\", \"com.au\"=>\"Australia\",  #\n# :ph=>\"Philippines\"}                                      #\n#                                                          #\n############################################################").to_stdout
     end
 
-    it "returns wrapped set" do
+    it "returns wrapped Set" do
       expect { lumos Set.new([1,2,3])}.to output("#<Set: {1, 2, 3}>").to_stdout
     end
 
-    it "returns wrapped struct" do
+    it "returns wrapped Struct" do
       Struct.new("Customer", :name, :address)
       expect { lumos Struct::Customer.new("Dave", "123 Main")}.to output("##############################################################\n#                                                            #\n# #<struct Struct::Customer name=\"Dave\", address=\"123 Main\"> #\n#                                                            #\n##############################################################").to_stdout
+    end
+
+    it "returns wrapped OpenStruct" do
+      Struct.new("Customer", :name, :address)
+      expect { lumos OpenStruct.new(country: "Russia", population: 143_975_923)}.to output("########################################################\n#                                                      #\n# #<OpenStruct country=\"Russia\", population=143975923> #\n#                                                      #\n########################################################").to_stdout
     end
   end
 end

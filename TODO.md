@@ -2,7 +2,7 @@
 - [x] Test to-do markdown
 
 ## Next
-- [ ] Test different input objects behaviour (Set, Struct, OpenStruct, ActiveRecord)
+- [ ] Test different input objects behaviour (Set, Struct, OpenStruct, Class, ActiveRecord)
 - [ ] Refactor Lumos::Formatters::Base
 - [ ] Rewrite README
 - [ ] Release on Rubygems
