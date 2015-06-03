@@ -2,6 +2,7 @@
 - [x] Test to-do markdown
 
 ## Next
+- [ ] Case when length is wider than message
 - [ ] Test different input objects behaviour (Set, Struct, OpenStruct, Class, ActiveRecord)
 - [ ] Refactor Lumos::Formatters::Base
 - [ ] Rewrite README

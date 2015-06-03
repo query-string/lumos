@@ -18,33 +18,57 @@ Add this line to your application's Gemfile:
 gem 'lumos'
 ```
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
     $ gem install lumos
 
-## Devider
+## Usage as a divider
+
+Description of single usage cases
 
 **Single call without params**
 ```ruby
 lumos
 ```
+Might be useful for and cases like...
+<pre>
+###
+</pre>
 
 **Specify delimiter**
 ```ruby
-lumos :>, "->"
+lumos :>, "☭"
 ```
+Might be useful for and cases like...
+<pre>
+☭☭☭
+</pre>
+
 
 **Specify number of repeats**
 ```ruby
 lumos :>, "@", 10
 ```
+Might be useful for and cases like...
+<pre>
+@@@@@@@@@@
+</pre>
 
+## Usage as a wrapper
 
-## Wrapper
+```ruby
+lumos "String", {alignment: :surround, padding: 2, delimiter: "☢"}
+```
+
+<pre>
+☢☢☢☢☢☢☢☢☢☢☢☢
+☢          ☢
+☢          ☢
+☢  String  ☢
+☢          ☢
+☢          ☢
+☢☢☢☢☢☢☢☢☢☢☢☢
+</pre>
 
 ### Alignment
 ### Delimiter
