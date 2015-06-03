@@ -1,7 +1,7 @@
 module Kernel
   def lumos(message = nil, *args)
     if message.nil? || message == :>
-      lumos_devide args[0], args[1]
+      lumos_divide args[0], args[1]
     else
       lumos_wrap message, args[0]
     end
@@ -9,7 +9,7 @@ module Kernel
 
 private
 
-  def lumos_devide(delimiter, iterations)
+  def lumos_divide(delimiter, iterations)
     delimiter  ||= "#"
     iterations ||= 3
 

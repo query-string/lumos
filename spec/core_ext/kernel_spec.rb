@@ -2,7 +2,7 @@ require "spec_helper"
 require "set"
 
 RSpec.describe "Lumos kernel extensions" do
-  context "devider" do
+  context "divider" do
     it "returns sharps if no arguments defined" do
       expect { lumos }.to output("###").to_stdout
     end
