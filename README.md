@@ -57,19 +57,12 @@ Might be useful for and cases like...
 ## Usage as a wrapper
 
 ```ruby
-lumos "String", {alignment: :surround, padding: 2, delimiter: "☢"}
+lumos "String"
 ```
 
-<pre>
-☢☢☢☢☢☢☢☢☢☢☢☢
-☢          ☢
-☢          ☢
-☢  String  ☢
-☢          ☢
-☢          ☢
-☢☢☢☢☢☢☢☢☢☢☢☢
-</pre>
+Available options:
 
-### Alignment
-### Delimiter
-### Padding
+    delimiter:
+    position:
+    padding:
+    length:

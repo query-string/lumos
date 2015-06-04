@@ -31,7 +31,7 @@ RSpec.describe "Lumos kernel extensions" do
   end
 
   context "objects" do
-    it "returns wrapped Array" do
+    it "returns wra pped Array" do
       expect { lumos %w(One Two Freddy is coming for you Three Four better lock your door ) }.to output("##########################################################################\n#                                                                        #\n# [\"One\", \"Two\", \"Freddy\", \"is\", \"coming\", \"for\", \"you\", \"Three\", \"Four\" #\n# , \"better\", \"lock\", \"your\", \"door\"]                                    #\n#                                                                        #\n##########################################################################").to_stdout
     end
 
