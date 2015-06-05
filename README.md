@@ -62,7 +62,23 @@ lumos "String"
 
 Available options:
 
-    delimiter:
     position:
+    delimiter:
     padding:
     length:
+
+### Position
+
+* @:surround – default alignment
+* @:left
+* @:right
+* @:top
+* @:bottom
+* @:horizontal
+* @:vertical
+
+### Delimiter
+
+### Padding
+
+### Length
