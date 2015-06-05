@@ -58,12 +58,11 @@ lumos "String"
 
 Available options:
 
-    position:
-    delimiter:
-    padding:
-    length:
+```ruby
+lumos "String", {position: :surround, delimiter: "#", padding: 1, length: 140}
+```
 
-### Position
+Positions:
 
 * @:surround@ – default alignment
 * @:left@
@@ -72,7 +71,6 @@ Available options:
 * @:bottom@
 * @:horizontal@
 * @:vertical@
-* @:file@ - a file field. Default for file-attachment attributes matching: "paperclip":http://github.com/thoughtbot/paperclip or
 
 ### Delimiter
 
