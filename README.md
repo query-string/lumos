@@ -26,30 +26,26 @@ Or install it yourself as:
 
 Description of single usage cases
 
-**Single call without params**
-```ruby
-lumos
-```
-Might be useful for and cases like...
+Single call without params:
+
+`lumos`
+
 <pre>
 ###
 </pre>
 
-**Specify delimiter**
-```ruby
-lumos :>, "☭"
-```
-Might be useful for and cases like...
+Specify delimiter:
+
+`lumos :>, "☭"`
+
 <pre>
 ☭☭☭
 </pre>
 
+Specify number of delimiter repeats:
 
-**Specify number of repeats**
-```ruby
-lumos :>, "@", 10
-```
-Might be useful for and cases like...
+`lumos :>, "@", 10`
+
 <pre>
 @@@@@@@@@@
 </pre>
@@ -76,6 +72,7 @@ Available options:
 * @:bottom@
 * @:horizontal@
 * @:vertical@
+* @:file@ - a file field. Default for file-attachment attributes matching: "paperclip":http://github.com/thoughtbot/paperclip or
 
 ### Delimiter
 
