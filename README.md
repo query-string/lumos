@@ -69,13 +69,13 @@ Available options:
 
 ### Position
 
-* @:surround – default alignment
-* @:left
-* @:right
-* @:top
-* @:bottom
-* @:horizontal
-* @:vertical
+* @:surround@ – default alignment
+* @:left@
+* @:right@
+* @:top@
+* @:bottom@
+* @:horizontal@
+* @:vertical@
 
 ### Delimiter
 
