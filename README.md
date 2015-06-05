@@ -28,27 +28,27 @@ Description of single usage cases
 
 Single call without params:
 
-`lumos`
+```ruby
+lumos
+```
 
-<pre>
-###
-</pre>
+`###`
 
 Specify delimiter:
 
-`lumos :>, "☭"`
+```ruby
+lumos :>, "☭"
+```
 
-<pre>
-☭☭☭
-</pre>
+`☭☭☭`
 
 Specify number of delimiter repeats:
 
-`lumos :>, "@", 10`
+```ruby
+lumos :>, "@", 10
+```
 
-<pre>
-@@@@@@@@@@
-</pre>
+`@@@@@@@@@@`
 
 ## Usage as a wrapper
 
@@ -62,7 +62,7 @@ Available options:
 lumos "String", {position: :surround, delimiter: "#", padding: 1, length: 140}
 ```
 
-Positions:
+# Positions:
 
 * @:surround@ – default alignment
 * @:left@
