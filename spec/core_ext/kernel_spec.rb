@@ -1,4 +1,5 @@
 require "spec_helper"
+require "active_record_helper"
 require "set"
 
 RSpec.describe "Lumos kernel extensions" do

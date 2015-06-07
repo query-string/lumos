@@ -2,6 +2,7 @@ ENV['CODECLIMATE_REPO_TOKEN'] = "331d5a46a9d322bb39ba65ac61954d3f5453f7eb20ffd4d
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
+require "active_record"
 require "lumos"
 
 RSpec.configure do |config|
