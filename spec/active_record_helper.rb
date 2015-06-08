@@ -3,10 +3,10 @@ ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 # Create the coffee table
 ActiveRecord::Migration.verbose = false
-ActiveRecord::Migration.create_table :coffee do |t|
+ActiveRecord::Migration.create_table :coffees do |t|
   t.string :sort
   t.integer :price
-  t.datetime :created_at
+  t.integer :saturation
 end
 
 # Create model

@@ -54,5 +54,10 @@ RSpec.describe "Lumos kernel extensions" do
       Struct.new("Customer", :name, :address)
       expect { lumos OpenStruct.new(country: "Russia", population: 143_975_923)}.to output("########################################################\n#                                                      #\n# #<OpenStruct country=\"Russia\", population=143975923> #\n#                                                      #\n########################################################").to_stdout
     end
+
+    it "returns wrapped ActiveRecord" do
+      Struct.new("Customer", :name, :address)
+      expect { lumos Coffee.new(sort: "Cappuccino", price: 105, saturation: 25)}.to output("#####################################################################\n#                                                                   #\n# #<Coffee id: nil, sort: \"Cappuccino\", price: 105, saturation: 25> #\n#                                                                   #\n#####################################################################").to_stdout
+    end
   end
 end
