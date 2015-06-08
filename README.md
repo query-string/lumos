@@ -26,33 +26,29 @@ Or install it yourself as:
 
 Description of single usage cases
 
-**Single call without params**
+Single call without params:
+
 ```ruby
 lumos
 ```
-Might be useful for and cases like...
-<pre>
-###
-</pre>
 
-**Specify delimiter**
+`###`
+
+Specify delimiter:
+
 ```ruby
 lumos :>, "☭"
 ```
-Might be useful for and cases like...
-<pre>
-☭☭☭
-</pre>
 
+`☭☭☭`
 
-**Specify number of repeats**
+Specify number of delimiter repeats:
+
 ```ruby
 lumos :>, "@", 10
 ```
-Might be useful for and cases like...
-<pre>
-@@@@@@@@@@
-</pre>
+
+`@@@@@@@@@@`
 
 ## Usage as a wrapper
 
@@ -62,20 +58,19 @@ lumos "String"
 
 Available options:
 
-    position:
-    delimiter:
-    padding:
-    length:
+```ruby
+lumos "String", {position: :surround, delimiter: "#", padding: 1, length: 140}
+```
 
-### Position
+# Positions:
 
-* @:surround – default alignment
-* @:left
-* @:right
-* @:top
-* @:bottom
-* @:horizontal
-* @:vertical
+* @:surround@ – default alignment
+* @:left@
+* @:right@
+* @:top@
+* @:bottom@
+* @:horizontal@
+* @:vertical@
 
 ### Delimiter
 
