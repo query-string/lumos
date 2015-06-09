@@ -4,10 +4,14 @@ module Lumos
       attr_reader :message, :delimiter, :padding, :length
 
       def initialize(options = {})
-        @message   = options.fetch(:message).to_s
+        @message   = message_present options.fetch(:message)
         @delimiter = options.fetch(:delimiter, "#").to_s
         @padding   = options.fetch(:padding, 1).to_i.abs
         @length    = options.fetch(:length, 70).to_i.abs
+      end
+
+      def message_present(message)
+        %w(ActiveRecord Set).include?(message.class.to_s) ? message.inspect : message.to_s
       end
 
       def message_length
