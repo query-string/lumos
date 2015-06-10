@@ -4,14 +4,10 @@ module Lumos
       attr_reader :message, :delimiter, :padding, :length
 
       def initialize(options = {})
-        @message   = message_present options.fetch(:message)
+        @message   = unwrap_message options.fetch(:message)
         @delimiter = options.fetch(:delimiter, "#").to_s
         @padding   = options.fetch(:padding, 1).to_i.abs
         @length    = options.fetch(:length, 70).to_i.abs
-      end
-
-      def message_present(message)
-        %w(ActiveRecord Set).include?(message.class.to_s) ? message.inspect : message.to_s
       end
 
       def message_length
@@ -27,6 +23,11 @@ module Lumos
       end
 
     private
+
+      def unwrap_message(message)
+        object_id_hex = (message.object_id << 1).to_s(16)
+        message.to_s.include?(object_id_hex) ? message.inspect : message.to_s
+      end
 
       def iterate_chopped_lines(string = "")
         chopped_message.each{ |line| string += yield line }
