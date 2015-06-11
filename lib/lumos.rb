@@ -1,6 +1,6 @@
 require "active_support/core_ext/string"
 
-%w(base surround left right top bottom horizontal vertical).each do |file|
+%w(base_chopper base_horizontal base surround left right top bottom horizontal vertical).each do |file|
   require File.dirname(__FILE__) + "/lumos/formatters/#{file}"
 end
 
