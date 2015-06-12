@@ -4,7 +4,7 @@
 ## Next
 - [x] Cases when length is wider than message
 - [x] Test different input objects behaviour (Set, Struct, OpenStruct, Class, ActiveRecord)
-- [ ] Refactor Lumos::Formatters::Base
+- [x] Refactor Lumos::Formatters::Base
 - [ ] Rewrite README
 - [ ] Release on Rubygems
 - [ ] Changeable default options

@@ -18,6 +18,6 @@ private
 
   def lumos_wrap(message = nil, options)
     options ||= {}
-    print Lumos::Wrapper.new(message, options).result
+    print Lumos::Wrapper.new(message, options).result + "\n\n"
   end
 end
