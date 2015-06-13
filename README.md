@@ -17,7 +17,6 @@
 Have you ever tried to highlight your Ruby objects from your controllers/models/whatever in the Rails log? I bet you have ). I usually do something like that ` p "###"; p %w(foo bar baz ); p "###"` and in general it works fine, until you have to repeat this construction again and again, with different objects, in different places. I have a good news – `lumos` can easily wrap and make any object perceptible amongs common Rails log mess.
 
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -30,33 +29,24 @@ Or install it yourself as:
 
     $ gem install lumos
 
-## Usage as a divider
+## Usage
 
-Description of single usage cases
+Depend on passed parameters, `lumos` can act as a *divider* or as a *wrapper*.
 
-Single call without params:
+### Divider
+
+For example, simple call of `lumos` without params will print a `###` message in your log. Of course you're able to change a divider sign (`lumos :>, "☭"` will print a `☭☭☭` message) and number of repetitions – `lumos :>, "☢", 10`.
 
 ```ruby
 lumos
-```
+print "###"
 
-`###`
-
-Specify delimiter:
-
-```ruby
 lumos :>, "☭"
+print ☭☭☭
+
+lumos :>, "☢"
+print ☢☢☢☢☢☢☢☢☢☢
 ```
-
-`☭☭☭`
-
-Specify number of delimiter repeats:
-
-```ruby
-lumos :>, "@", 10
-```
-
-`@@@@@@@@@@`
 
 ## Usage as a wrapper
 
@@ -70,8 +60,7 @@ Available options:
 lumos "String", {position: :surround, delimiter: "#", padding: 1, length: 140}
 ```
 
-# Positions:
-
+### Positions:
 
 ### Delimiter
 
