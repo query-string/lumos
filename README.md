@@ -31,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 
-Depend on passed parameters, `lumos` can act as a *divider* or as a *wrapper*.
+Depend on passed parameters, `lumos` can act as a **divider** or as a **wrapper**.
 
 ### Divider
 
@@ -42,23 +42,23 @@ lumos
 print "###"
 
 lumos :>, "☭"
-print ☭☭☭
+print "☭☭☭"
 
-lumos :>, "☢"
-print ☢☢☢☢☢☢☢☢☢☢
+lumos :>, "☢", 10
+print "☢☢☢☢☢☢☢☢☢☢"
 ```
 
-## Usage as a wrapper
+### Wrapper
 
-```ruby
-lumos "String"
-```
+But main reason of `lumos` existence is necessity of objects highlighting besides ambient noise. So, initial array might be highlighted with `lumos %w(foo bar baz)` that will give us such output:
 
-Available options:
-
-```ruby
-lumos "String", {position: :surround, delimiter: "#", padding: 1, length: 140}
-```
+<pre>
+#########################
+#                       #
+# ["foo", "bar", "baz"] #
+#                       #
+#########################
+</pre>
 
 ### Positions:
 
