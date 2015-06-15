@@ -81,7 +81,6 @@ nes", :la=>"Laos"}
 #### delimiter:
 
 ```ruby
-domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
 lumos domains, {position: :horizontal, delimiter: "❤★"}
 ```
 
@@ -94,7 +93,6 @@ nes", :la=>"Laos"}
 #### padding:
 
 ```ruby
-domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
 lumos domains, {delimiter: "❄", padding: 2}
 ```
 
@@ -114,7 +112,6 @@ lumos domains, {delimiter: "❄", padding: 2}
 #### length:
 
 ```ruby
-domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
 lumos domains, {position: :horizontal, delimiter: "->", length: 140}
 ```
 
