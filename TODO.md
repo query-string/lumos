@@ -1,12 +1,13 @@
-# TODO
-- [x] Test to-do markdown
+# Lumos TODO
 
-## Next
+## Release
 - [x] Cases when length is wider than message
 - [x] Test different input objects behaviour (Set, Struct, OpenStruct, Class, ActiveRecord)
 - [x] Refactor Lumos::Formatters::Base
-- [ ] Rewrite README
+- [x] Rewrite README
 - [ ] Release on Rubygems
+
+## Next
 - [ ] Changeable default options
 - [ ] Add colors support
 - [ ] Add emoji support

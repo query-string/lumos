@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Lumos::VERSION
   spec.authors       = ["query-string"]
   spec.email         = ["atimofeev@reactant.ru"]
-  spec.summary       = "Nifty wrapper for your strings"
-  spec.description   = "Piu-piu, ololo"
+  spec.summary       = "Objects wrapping library"
+  spec.description   = "Have you ever tried to highlight your Ruby objects from your controllers/models/whatever in the Rails log? Lumos can easily wrap and make any object perceptible amongs common Rails log mess!"
   spec.homepage      = "https://github.com/query-string/lumos"
   spec.license       = "MIT"
 
