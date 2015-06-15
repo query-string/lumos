@@ -25,9 +25,17 @@ Add this line to your application's Gemfile:
 gem 'lumos'
 ```
 
-Or install it yourself as:
-
-    $ gem install lumos
+And call inside your controller/model/whatever
+ ```ruby
+    class My::MoviesController < ApplicationController
+      def checked
+        lumos params
+        @movie = Movie.find(params[:movie_id])
+        current_user.send(params[:scope]) << @movie
+        #redirect_to root_path
+      end
+    end
+ ```
 
 ## Usage
 
