@@ -60,10 +60,27 @@ But main reason of `lumos` existence is necessity of objects highlighting beside
 #########################
 </pre>
 
-### Positions:
+Wrapping method also takes few options such as:
 
-### Delimiter
+#### position:
 
-### Padding
+`:surround` (by default), `:top`, `:bottom`, `:left`, `:right`, `:horizontal`, `:vertical`
 
-### Length
+```ruby
+domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
+lumos domains, {position: :horizontal}
+```
+
+<pre>
+######################################################################
+{:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi
+nes"}
+######################################################################=
+</pre>
+
+#### delimiter:
+
+
+#### padding:
+
+#### length:
