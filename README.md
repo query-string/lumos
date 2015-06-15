@@ -67,20 +67,59 @@ Wrapping method also takes few options such as:
 `:surround` (by default), `:top`, `:bottom`, `:left`, `:right`, `:horizontal`, `:vertical`
 
 ```ruby
-domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
+domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
 lumos domains, {position: :horizontal}
 ```
 
 <pre>
 ######################################################################
 {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi
-nes"}
-######################################################################=
+nes", :la=>"Laos"}
+######################################################################
 </pre>
 
 #### delimiter:
 
+```ruby
+domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
+lumos domains, {position: :horizontal, delimiter: "❤★"}
+```
+
+<pre>
+{:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi
+nes", :la=>"Laos"}
+❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★
+</pre>
 
 #### padding:
 
+```ruby
+domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
+lumos domains, {delimiter: "❄", padding: 2}
+```
+
+<pre>
+❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄
+❄                                                                            ❄
+❄                                                                            ❄
+❄                                                                            ❄
+❄   {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi   ❄
+❄   nes", :la=>"Laos"}                                                       ❄
+❄                                                                            ❄
+❄                                                                            ❄
+❄                                                                            ❄
+❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄❄
+</pre>
+
 #### length:
+
+```ruby
+domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines", la: "Laos"}
+lumos domains, {position: :horizontal, delimiter: "->", length: 140}
+```
+
+<pre>
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+{:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippines", :la=>"Laos"}
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+</pre>
