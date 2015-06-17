@@ -2,10 +2,21 @@ module Lumos
   class Wrapper
     attr_reader :message, :options, :position
 
+    def self.default_options
+      @default_options ||= {
+          position: :surround,
+          delimiter: "#",
+          padding: 1,
+          length: 70
+      }
+    end
+
     def initialize(message, options = {})
+      options  = self.class.default_options.merge(options)
+
       @message  = message
       @options  = options
-      @position = options.fetch(:position, :surround).to_sym
+      @position = options[:position].to_sym
 
       validate_position
     end
