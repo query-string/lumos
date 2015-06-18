@@ -8,6 +8,7 @@
 - [x] Release on Rubygems
 
 ## Next
+- [x] Add \n to the end of lumos line
 - [ ] Changeable default options
 - [ ] Add multi-colors support
 - [ ] Add emoji support :scream:
