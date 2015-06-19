@@ -13,11 +13,11 @@ private
     delimiter  ||= "#"
     iterations ||= 3
 
-    print delimiter * iterations.to_i
+    print (delimiter * iterations.to_i) + "\n"
   end
 
   def lumos_wrap(message = nil, options)
     options ||= {}
-    print Lumos::Wrapper.new(message, options).result
+    print Lumos::Wrapper.new(message, options).result + "\n"
   end
 end
