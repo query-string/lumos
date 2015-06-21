@@ -9,6 +9,6 @@
 
 ## Next
 - [x] Add \n to the end of lumos line
+- [ ] Add emoji support :scream:
 - [ ] Changeable default options
 - [ ] Add multi-colors support
-- [ ] Add emoji support :scream:
