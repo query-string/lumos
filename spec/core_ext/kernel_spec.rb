@@ -29,6 +29,10 @@ RSpec.describe "Lumos kernel extensions" do
     it "returns bottom positioned message" do
       expect { lumos "Accio", {position: :bottom, delimiter: "@"} }.to output("Accio\n@@@@@\n").to_stdout
     end
+
+    it "returns an emoji-wrapped messages" do
+      expect { lumos "Accio", {delimiter: ":alien:"}}.to output( "👽👽👽👽👽👽👽👽👽\n👽       👽\n👽 Accio 👽\n👽       👽\n👽👽👽👽👽👽👽👽👽\n").to_stdout
+    end
   end
 
   context "objects" do

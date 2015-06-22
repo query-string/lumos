@@ -9,6 +9,7 @@
 
 ## Next
 - [x] Add \n to the end of lumos line
-- [ ] Add emoji support :scream:
+- [x] Add emoji support :scream:
+- [ ] Support emoji for divider too
 - [ ] Changeable default options
 - [ ] Add multi-colors support
