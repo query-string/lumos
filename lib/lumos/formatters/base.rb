@@ -1,5 +1,3 @@
-require "rumoji"
-
 module Lumos
   module Formatters
     class Base
@@ -19,7 +17,7 @@ module Lumos
       def initialize(options = {})
         options    = self.class.default_options.merge(options)
         @message   = unwrap_message options.fetch(:message)
-        @delimiter = unwrap_delimiter options[:delimiter].to_s
+        @delimiter = options[:delimiter].to_s
         @padding   = options[:padding].to_i.abs
         @length    = options[:length].to_i.abs
       end
@@ -33,11 +31,6 @@ module Lumos
       def unwrap_message(message)
         object_id_hex = (message.object_id << 1).to_s(16)
         message.to_s.include?(object_id_hex) ? message.inspect : message.to_s
-      end
-
-      def unwrap_delimiter(delimiter)
-        emoji = delimiter.scan(/\:.*?\:/)
-        emoji.size > 0 ? emoji.map{|string| Rumoji.decode(string)}.join("") : delimiter
       end
 
       def vertical_padding

@@ -19,6 +19,10 @@ RSpec.describe "Lumos kernel extensions" do
     it "returns delimiter based string repeated 10 times" do
       expect { lumos :>, "@", 10 }.to output("@@@@@@@@@@\n").to_stdout
     end
+
+    it "returns emoji-delimiter repeated 10 times" do
+      expect { lumos :>, ":coffee:", 10 }.to output("☕☕☕☕☕☕☕☕☕☕\n").to_stdout
+    end
   end
 
   context "wrapper" do
