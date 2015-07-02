@@ -6,16 +6,7 @@ module Lumos
 
       attr_reader :message, :delimiter, :padding, :length
 
-      def self.default_options
-        @default_options ||= {
-            delimiter: "#",
-            padding: 1,
-            length: 70
-        }
-      end
-
       def initialize(options = {})
-        options    = self.class.default_options.merge(options)
         @message   = unwrap_message options.fetch(:message)
         @delimiter = options[:delimiter].to_s
         @padding   = options[:padding].to_i.abs
