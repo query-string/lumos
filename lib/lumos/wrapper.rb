@@ -6,7 +6,6 @@ module Lumos
       @default_options ||= {
           position:  :surround,
           delimiter: "#",
-          padding:   1,
           length:    70
       }
     end

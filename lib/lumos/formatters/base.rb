@@ -8,8 +8,8 @@ module Lumos
 
       def initialize(options = {})
         @message   = unwrap_message options.fetch(:message)
+        @padding   = options.fetch(:padding, 1).to_i.abs
         @delimiter = options[:delimiter].to_s
-        @padding   = options[:padding].to_i.abs
         @length    = options[:length].to_i.abs
       end
 
