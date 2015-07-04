@@ -27,4 +27,21 @@ describe Lumos::Wrapper do
       expect(described_class.new("Aparecium").bottom).to eq("Aparecium\n#########")
     end
   end
+
+  context "default options" do
+    it "returns top positioned message with changed delimiter" do
+      described_class.default_options[:delimiter] = "@"
+      expect(described_class.new("Avifors").top).to eq("@@@@@@@\nAvifors")
+      end
+
+    it "returns left positioned message with changed padding" do
+      described_class.default_options[:padding] = 3
+      expect(described_class.new("Avis").left).to eq("@   Avis")
+    end
+
+    it "returns horizontal positioned message" do
+      described_class.default_options[:position] = :horizontal
+      expect(described_class.new("Avis").result).to eq("@@@@\n\n\n\nAvis\n\n\n\n@@@@")
+    end
+  end
 end

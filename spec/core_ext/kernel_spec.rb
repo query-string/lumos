@@ -42,7 +42,7 @@ RSpec.describe "Lumos kernel extensions" do
   end
 
   context "objects" do
-    it "returns wra pped Array" do
+    it "returns wrapped Array" do
       expect { lumos %w(One Two Freddy is coming for you Three Four better lock your door ) }.to output("##########################################################################\n#                                                                        #\n# [\"One\", \"Two\", \"Freddy\", \"is\", \"coming\", \"for\", \"you\", \"Three\", \"Four\" #\n# , \"better\", \"lock\", \"your\", \"door\"]                                    #\n#                                                                        #\n##########################################################################\n").to_stdout
     end
 
@@ -65,7 +65,6 @@ RSpec.describe "Lumos kernel extensions" do
     end
 
     it "returns wrapped ActiveRecord" do
-      Struct.new("Customer", :name, :address)
       expect { lumos Coffee.new(sort: "Cappuccino", price: 105, saturation: 25)}.to output("#####################################################################\n#                                                                   #\n# #<Coffee id: nil, sort: \"Cappuccino\", price: 105, saturation: 25> #\n#                                                                   #\n#####################################################################\n").to_stdout
     end
   end
