@@ -12,7 +12,7 @@
 - [x] Add emoji support for divider and wrapper
 - [x] Changeable default options
 - [x] default_options spec
-- [ ] Support emoji for default_options too
+- [x] Support emoji for default_options too
 - [ ] Update README
 
 ## Next

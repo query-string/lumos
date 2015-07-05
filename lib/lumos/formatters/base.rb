@@ -6,10 +6,15 @@ module Lumos
 
       attr_reader :message, :delimiter, :padding, :length
 
+      def self.string_to_emoji(delimiter)
+        emoji = delimiter.scan(/\:.*?\:/)
+        emoji.size > 0 ? emoji.map{|string| Rumoji.decode(string)}.join("") : delimiter
+      end
+
       def initialize(options = {})
         @message   = unwrap_message options.fetch(:message)
         @padding   = options.fetch(:padding, 1).to_i.abs
-        @delimiter = options[:delimiter].to_s
+        @delimiter = Lumos::Formatters::Base.string_to_emoji options[:delimiter].to_s
         @length    = options[:length].to_i.abs
       end
 

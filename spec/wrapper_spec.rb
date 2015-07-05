@@ -28,20 +28,26 @@ describe Lumos::Wrapper do
     end
   end
 
-  context "default options" do
-    it "returns top positioned message with changed delimiter" do
+  context "default_options" do
+    it "returns default positioned message with delimiter changed" do
       described_class.default_options[:delimiter] = "@"
-      expect(described_class.new("Avifors").top).to eq("@@@@@@@\nAvifors")
+      expect(described_class.new("Avifors").result).to eq("@@@@@@@@@@@\n@         @\n@ Avifors @\n@         @\n@@@@@@@@@@@")
       end
 
-    it "returns left positioned message with changed padding" do
+    it "returns default positioned message with padding changed" do
       described_class.default_options[:padding] = 3
-      expect(described_class.new("Avis").left).to eq("@   Avis")
+      expect(described_class.new("Avifors").result).to eq("@@@@@@@@@@@@@@@\n@             @\n@             @\n@             @\n@   Avifors   @\n@             @\n@             @\n@             @\n@@@@@@@@@@@@@@@")
     end
 
-    it "returns horizontal positioned message" do
+    it "returns message with position changed" do
       described_class.default_options[:position] = :horizontal
-      expect(described_class.new("Avis").result).to eq("@@@@\n\n\n\nAvis\n\n\n\n@@@@")
+      expect(described_class.new("Avifors").result).to eq("@@@@@@@\n\n\n\nAvifors\n\n\n\n@@@@@@@")
+    end
+
+    it "returns message with bottom position and emoji delimiter" do
+      described_class.default_options[:position]  = :bottom
+      described_class.default_options[:delimiter] = ":poop:"
+      expect(described_class.new("Avifors").result).to eq("Avifors\n\n\n\n💩💩💩💩💩💩💩")
     end
   end
 end
