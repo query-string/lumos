@@ -37,7 +37,7 @@ RSpec.describe "Lumos kernel extensions" do
     end
 
     it "returns an emoji-wrapped messages" do
-      expect { lumos "Accio", {delimiter: ":alien:"}}.to output( "👽👽👽👽👽👽👽👽👽\n👽       👽\n👽 Accio 👽\n👽       👽\n👽👽👽👽👽👽👽👽👽\n").to_stdout
+      expect { lumos "Accio", {delimiter: ":alien:"} }.to output( "👽👽👽👽👽👽👽👽👽\n👽       👽\n👽 Accio 👽\n👽       👽\n👽👽👽👽👽👽👽👽👽\n").to_stdout
     end
   end
 
@@ -48,24 +48,24 @@ RSpec.describe "Lumos kernel extensions" do
 
     it "returns wrapped Hash" do
       domains = {ru: "Russia", th: "Thailand", "com.au" => "Australia", ph: "Philippines"}
-      expect { lumos domains, {length: 56}}.to output("############################################################\n#                                                          #\n# {:ru=>\"Russia\", :th=>\"Thailand\", \"com.au\"=>\"Australia\",  #\n# :ph=>\"Philippines\"}                                      #\n#                                                          #\n############################################################\n").to_stdout
+      expect { lumos domains, {length: 56} }.to output("############################################################\n#                                                          #\n# {:ru=>\"Russia\", :th=>\"Thailand\", \"com.au\"=>\"Australia\",  #\n# :ph=>\"Philippines\"}                                      #\n#                                                          #\n############################################################\n").to_stdout
     end
 
     it "returns wrapped Set" do
-      expect { lumos Set.new([1,2,3])}.to output("#####################\n#                   #\n# #<Set: {1, 2, 3}> #\n#                   #\n#####################\n").to_stdout
+      expect { lumos Set.new([1,2,3]) }.to output("#####################\n#                   #\n# #<Set: {1, 2, 3}> #\n#                   #\n#####################\n").to_stdout
     end
 
     it "returns wrapped Struct" do
       Struct.new("Customer", :name, :address)
-      expect { lumos Struct::Customer.new("Dave", "123 Main")}.to output("##############################################################\n#                                                            #\n# #<struct Struct::Customer name=\"Dave\", address=\"123 Main\"> #\n#                                                            #\n##############################################################\n").to_stdout
+      expect { lumos Struct::Customer.new("Dave", "123 Main") }.to output("##############################################################\n#                                                            #\n# #<struct Struct::Customer name=\"Dave\", address=\"123 Main\"> #\n#                                                            #\n##############################################################\n").to_stdout
     end
 
     it "returns wrapped OpenStruct" do
-      expect { lumos OpenStruct.new(country: "Russia", population: 143_975_923)}.to output("########################################################\n#                                                      #\n# #<OpenStruct country=\"Russia\", population=143975923> #\n#                                                      #\n########################################################\n").to_stdout
+      expect { lumos OpenStruct.new(country: "Russia", population: 143_975_923) }.to output("########################################################\n#                                                      #\n# #<OpenStruct country=\"Russia\", population=143975923> #\n#                                                      #\n########################################################\n").to_stdout
     end
 
     it "returns wrapped ActiveRecord" do
-      expect { lumos Coffee.new(sort: "Cappuccino", price: 105, saturation: 25)}.to output("#####################################################################\n#                                                                   #\n# #<Coffee id: nil, sort: \"Cappuccino\", price: 105, saturation: 25> #\n#                                                                   #\n#####################################################################\n").to_stdout
+      expect { lumos Coffee.new(sort: "Cappuccino", price: 105, saturation: 25) }.to output("#####################################################################\n#                                                                   #\n# #<Coffee id: nil, sort: \"Cappuccino\", price: 105, saturation: 25> #\n#                                                                   #\n#####################################################################\n").to_stdout
     end
   end
 end

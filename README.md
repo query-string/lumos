@@ -98,6 +98,17 @@ nes", :la=>"Laos"}
 ❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★❤★
 </pre>
 
+And as you know – everything is better with emoji, so lumos supports emoji delimiters as well!
+
+```ruby
+lumos domains, {position: :vertical, delimiter: ":coffee:"}
+```
+
+<pre>
+☕ {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi ☕
+☕ nes", :la=>"Laos"}                                                     ☕
+</pre>
+
 #### padding:
 
 ```ruby
