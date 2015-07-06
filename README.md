@@ -104,10 +104,8 @@ And as you know – everything is better with emoji, so lumos supports emoji del
 lumos domains, {position: :vertical, delimiter: ":coffee:"}
 ```
 
-<pre>
 :coffee: {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi :coffee:
 :coffee: nes", :la=>"Laos"}                                                     :coffee:
-</pre>
 
 #### padding:
 
