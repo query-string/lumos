@@ -105,8 +105,8 @@ lumos domains, {position: :vertical, delimiter: ":coffee:"}
 ```
 
 <pre>
-☕ {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi ☕
-☕ nes", :la=>"Laos"}                                                     ☕
+:coffee: {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippi :coffee:
+:coffee: nes", :la=>"Laos"}                                                     :coffee:
 </pre>
 
 #### padding:
