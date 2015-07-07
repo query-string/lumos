@@ -7,3 +7,5 @@ end
 require "lumos/wrapper"
 require "lumos/core_ext/kernel"
 require "lumos/version"
+
+require "lumos/railtie" if defined?(Rails)
