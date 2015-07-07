@@ -89,7 +89,7 @@ nes", :la=>"Laos"}
 #### delimiter:
 
 ```ruby
-lumos domains, {position: :horizontal, delimiter: "❤★"}
+lumos domains, position: :horizontal, delimiter: "❤★"
 ```
 
 <pre>
@@ -111,7 +111,7 @@ Coffee smells like freshly ground heaven
 #### padding:
 
 ```ruby
-lumos domains, {delimiter: "❄", padding: 2}
+lumos domains, delimiter: "❄", padding: 2
 ```
 
 <pre>
@@ -130,7 +130,7 @@ lumos domains, {delimiter: "❄", padding: 2}
 #### length:
 
 ```ruby
-lumos domains, {position: :horizontal, delimiter: "->", length: 140}
+lumos domains, position: :horizontal, delimiter: "->", length: 140
 ```
 
 <pre>
