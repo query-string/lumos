@@ -101,7 +101,7 @@ nes", :la=>"Laos"}
 And as you know – everything is better with emoji, so lumos supports emoji delimiters as well!
 
 ```ruby
-lumos domains, {position: :vertical, delimiter: ":coffee:"}
+lumos "Coffee smells like freshly ground heaven", delimiter: ":coffee:", position: :bottom
 ```
 
 Coffee smells like freshly ground heaven
