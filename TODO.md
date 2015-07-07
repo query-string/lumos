@@ -13,7 +13,9 @@
 - [x] Changeable default options
 - [x] default_options spec
 - [x] Support emoji for default_options too
-- [ ] Update README
+- [x] Update README about emoji support
+- [ ] Add config.rails_defaults options
+- [ ] Add defaults description to README
 
 ## Next
 - [ ] Add multi-colors support
