@@ -89,7 +89,7 @@ nes", :la=>"Laos"}
 #### delimiter:
 
 ```ruby
-lumos domains, {position: :horizontal, delimiter: "❤★"}
+lumos domains, position: :horizontal, delimiter: "❤★"
 ```
 
 <pre>
@@ -101,17 +101,17 @@ nes", :la=>"Laos"}
 And as you know – everything is better with emoji, so lumos supports emoji delimiters as well!
 
 ```ruby
-lumos domains, {position: :vertical, delimiter: ":coffee:"}
+lumos "Coffee smells like freshly ground heaven", delimiter: ":coffee:", position: :bottom
 ```
 
 Coffee smells like freshly ground heaven
 
-:coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
+:coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
 
 #### padding:
 
 ```ruby
-lumos domains, {delimiter: "❄", padding: 2}
+lumos domains, delimiter: "❄", padding: 2
 ```
 
 <pre>
@@ -130,7 +130,7 @@ lumos domains, {delimiter: "❄", padding: 2}
 #### length:
 
 ```ruby
-lumos domains, {position: :horizontal, delimiter: "->", length: 140}
+lumos domains, position: :horizontal, delimiter: "->", length: 140
 ```
 
 <pre>
