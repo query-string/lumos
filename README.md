@@ -106,7 +106,7 @@ lumos domains, {position: :vertical, delimiter: ":coffee:"}
 
 Coffee smells like freshly ground heaven
 
-:coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
+:coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
 
 #### padding:
 
