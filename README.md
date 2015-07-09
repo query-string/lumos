@@ -138,3 +138,27 @@ lumos domains, position: :horizontal, delimiter: "->", length: 140
 {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippines", :la=>"Laos"}
 ->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
 </pre>
+
+### Default options
+
+You are able to specify one or few settings described above as a part of global default options.
+
+If you're using Rails, you can define a Hash with default options in `config/application.rb` or in any of the `config/environments/*.rb` files on config.lumos_defaults. An example:
+
+```ruby
+module YourApp
+  class Application < Rails::Application
+    # Other code...
+
+    config.lumos_defaults = {position: :bottom, delimiter: ":poop:"}
+  end
+end
+```
+
+Another option is to directly modify the `Lumos::Wrapper.default_options` Hash - this method works for non-Rails applications or is an option if you prefer to place the Lumos default settings in an initializer.
+
+```ruby
+Lumos::Wrapper.default_options[:padding] = 5
+Lumos::Wrapper.default_options[:length] = 140
+Lumos::Wrapper.default_options[:delimiter] = ":alien:"
+```
