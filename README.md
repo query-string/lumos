@@ -56,6 +56,8 @@ lumos :>, "☢", 10
 print "☢☢☢☢☢☢☢☢☢☢"
 ```
 
+---
+
 ### Wrapper
 
 But main reason of `lumos` existence is necessity of objects highlighting besides ambient noise. So, initial array might be highlighted with `lumos %w(foo bar baz)` that will give us such output:
@@ -138,6 +140,8 @@ lumos domains, position: :horizontal, delimiter: "->", length: 140
 {:ru=>"Russia", :th=>"Thailand", "com.au"=>"Australia", :ph=>"Philippines", :la=>"Laos"}
 ->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
 </pre>
+
+---
 
 ### Default options
 
